@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+ruby '2.1.2'
 gem 'rails', '4.1.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
@@ -36,3 +37,5 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+
+gem "awesome_print"
