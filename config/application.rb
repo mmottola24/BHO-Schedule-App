@@ -30,5 +30,7 @@ module BHOScheduleApp
     # For Foundation 5
     config.assets.precompile += %w( vendor/modernizr )
 
+    config.time_zone = 'Eastern Time (US & Canada)'
+
   end
 end
