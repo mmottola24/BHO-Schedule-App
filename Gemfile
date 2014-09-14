@@ -16,6 +16,7 @@ gem 'therubyracer', :platform=>:ruby
 gem 'thin'
 gem 'httparty'
 gem 'newrelic_rpm'
+gem 'rails_12factor', group: :production
 
 group :development do
   gem 'html2haml'
