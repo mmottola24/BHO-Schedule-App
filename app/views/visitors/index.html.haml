@@ -12,8 +12,12 @@
         - @vendetta_schedule[:future_games][0..1].each do |game|
           = render partial: 'game', locals: { game: game, played_game: false }
 
+        = link_to 'Full League Schedule', 'http://www.ballhockey-canada.com/ballhockey/maxsolutions/niagara/schedules/LSch_Mens_1143.htm', class: 'full-schedule'
+
       .small-12.large-6.columns
         %h2 Weekend Warriors
 
         - @weekend_warriors_schedule[:future_games][0..1].each do |game|
           = render partial: 'game', locals: { game: game, played_game: false }
+
+        = link_to 'Full League Schedule', 'http://www.ballhockey-canada.com/ballhockey/maxsolutions/niagara/schedules/LSch_Mens_1142.htm', class: 'full-schedule'
