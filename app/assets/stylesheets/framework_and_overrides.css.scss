@@ -1,6 +1,9 @@
 // import the CSS framework
 @import "foundation";
 
+body {
+  background-color: #eee;
+}
 // override for the 'Home' navigation link
 .top-bar .name {
   font-size: rem-calc(13);
@@ -48,7 +51,7 @@ section {
 }
 
 main {
-  margin-top: 20px;
+  padding-top: 20px;
 }
 
 nav section {

@@ -6,13 +6,13 @@
   - else
 
     .row
-      .large-6.columns
+      .small-6.columns
         %h2 Vendetta
 
         - @vendetta_schedule[:future_games][0..1].each do |game|
           = render partial: 'game', locals: { game: game, played_game: false }
 
-      .large-6.columns
+      .small-6.columns
         %h2 Weekend Warriors
 
         - @weekend_warriors_schedule[:future_games][0..1].each do |game|

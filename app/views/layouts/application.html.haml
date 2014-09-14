@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-    %title= content_for?(:title) ? yield(:title) : 'BHO Team Schedule App'
+    %title= content_for?(:title) ? yield(:title) : 'BHO Team Schedule'
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Bho Schedule App'}"}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     -# Modernizr is required for Zurb Foundation
@@ -12,6 +12,7 @@
   %body
     %header
       = render 'layouts/navigation'
-    %main{:role => "main"}
-      = render 'layouts/messages'
-      = yield
+    %main{role: 'main', class: 'container'}
+      .row
+        = render 'layouts/messages'
+        = yield
