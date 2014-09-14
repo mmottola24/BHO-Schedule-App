@@ -14,6 +14,7 @@ gem 'foundation-rails'
 gem 'haml-rails'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
+gem 'httparty'
 group :development do
   gem 'html2haml'
   gem 'hub', :require=>nil
