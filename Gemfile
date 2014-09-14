@@ -39,3 +39,16 @@ gem 'spring',        group: :development
 
 
 gem "awesome_print"
+gem 'foundation-rails'
+gem 'haml-rails'
+gem 'therubyracer', :platform=>:ruby
+gem 'thin'
+
+group :development do
+  gem 'html2haml'
+  gem 'hub', :require=>nil
+  gem 'quiet_assets'
+  gem 'rails_apps_pages'
+  gem 'rails_layout'
+end
+
