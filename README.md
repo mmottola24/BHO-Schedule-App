@@ -1,22 +1,12 @@
-Bho Schedule App
+BHO (Ball Hockey Ontario) Schedule App
 ================
+
+This is a mini-app built for the players of my ball hockey team (including myself) to use for checking our game schedules.
 
 This application was generated with the [rails_apps_composer](https://github.com/RailsApps/rails_apps_composer) gem
 provided by the [RailsApps Project](http://railsapps.github.io/).
 
-Rails Composer is open source and supported by subscribers. Please join RailsApps to support development of Rails Composer.
-
-Problems? Issues?
------------
-
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
-
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
-
-If the application doesn’t work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
-
-Ruby on Rails
+Requirements
 -------------
 
 This application requires:
@@ -41,8 +31,15 @@ Similar Projects
 Contributing
 ------------
 
+If you want to you may contribute on any level. Create issues for bug tracking and feature requests. Or Fork the project if you want to write code.
+
 Credits
 -------
 
+Michael Mottola
+
+[add yourself here if you contribute]
+
 License
 -------
+MIT License
