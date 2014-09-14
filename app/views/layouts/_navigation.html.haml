@@ -1,12 +1,15 @@
 -# navigation styled for Zurb Foundation 5
 -# the syntax for data-topbar may need to change for Zurb Foundation 5
-%nav.top-bar{"data-topbar" => true}
+%nav.top-bar{"data-topbar" => '', "data-options" => 'is_hover: true', role: 'navigation'}
   %ul.title-area
     %li.name
-      = link_to 'Home', root_path
+      %h1
+        = link_to 'BHO Team Schedule', root_path
+    / Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
     %li.toggle-topbar.menu-icon
       %a{:href => "#"}
-        Menu
-  .top-bar-section
-    %ul
+        %span Select Team
+  %section.top-bar-section
+    / Right Nav Section
+    %ul.right
       = render 'layouts/navigation_links'

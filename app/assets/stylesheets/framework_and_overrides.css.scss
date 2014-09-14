@@ -41,8 +41,16 @@
 main {
   @include twelve-columns;
   background-color: #eee;
-  }
+}
 section {
   @extend .row;
   margin-top: 20px;
-  }
+}
+
+main {
+  margin-top: 20px;
+}
+
+nav section {
+  margin-top: 0;
+}
