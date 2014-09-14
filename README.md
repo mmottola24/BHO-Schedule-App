@@ -31,7 +31,11 @@ Similar Projects
 Contributing
 ------------
 
-If you want to you may contribute on any level. Create issues for bug tracking and feature requests. Or Fork the project if you want to write code.
+If you want to you may contribute on any level.
+
+1. Create issues for bug tracking and feature requests.
+1. Fork the project if you want to write code.
+1. Make code or commit comments if you have suggestions for improvement
 
 Credits
 -------
