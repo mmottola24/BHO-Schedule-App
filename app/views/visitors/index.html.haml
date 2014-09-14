@@ -1,0 +1,19 @@
+%section#schedule
+  - if @vendetta_schedule.blank? or @weekend_warriors_schedule.blank?
+    %div{class: 'alert-box alert', 'data-alert' => ''}
+      %p Boo... Something went wrong. Schedules were not found or had errors.
+
+  - else
+
+    .row
+      .large-6.columns
+        %h2 Vendetta
+
+        - @vendetta_schedule[:future_games][0..1].each do |game|
+          = render partial: 'game', locals: { game: game, played_game: false }
+
+      .large-6.columns
+        %h2 Weekend Warriors
+
+        - @weekend_warriors_schedule[:future_games][0..1].each do |game|
+          = render partial: 'game', locals: { game: game, played_game: false }

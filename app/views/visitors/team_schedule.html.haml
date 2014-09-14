@@ -1,0 +1,23 @@
+%h2
+  #{@data[:team_name]} Schedule
+
+%section#schedule
+  - if @data[:schedule].nil? or @data[:schedule] == false
+    %div{class: 'alert-box alert', 'data-alert' => ''}
+      %p Boo... Something went wrong. Schedule was not found or had errors.
+
+  - else
+
+    %h3 Upcoming Games
+
+    - if @data[:schedule][:future_games].blank?
+      %p Bummer... no upcoming games posted.
+    - else
+      - @data[:schedule][:future_games].each do |game|
+        = render partial: 'game', locals: { game: game, played_game: false }
+
+    - unless @data[:schedule][:past_games].blank?
+      %h3 Played Games
+
+      - @data[:schedule][:past_games].reverse.each do |game|
+        = render partial: 'game', locals: { game: game, played_game: true }

@@ -1,0 +1,15 @@
+.row.game
+  %div{class: "large-#{(played_game == false) ? 6 : 5} columns"}
+    %div= game['Visitor']
+    %div= game['Home']
+
+  - if played_game == true
+    .large-2.columns
+      %div= game['VisitorPts']
+      %div= game['HomePts']
+
+  %div{class: "large-#{(played_game == false) ? 6 : 5} columns"}
+    %div= Time.parse(game['Date']).strftime('%a %b %d')
+    %div
+      %span.time= game['Start']
+      %span.rink= (game['Facility'] == 'Indoor') ? 'Inside' : 'Outside'
