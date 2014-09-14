@@ -7,17 +7,21 @@
 
     .row
       .small-12.large-6.columns
-        %h2 Vendetta
+        %h2 Vendetta Next Games
 
         - @vendetta_schedule[:future_games][0..1].each do |game|
           = render partial: 'game', locals: { game: game, played_game: false }
 
-        = link_to 'Full League Schedule', 'http://www.ballhockey-canada.com/ballhockey/maxsolutions/niagara/schedules/LSch_Mens_1143.htm', class: 'full-schedule'
+        .full-schedule
+          = link_to 'Full Team Schedule', team_vendetta_path
+          = link_to 'Full League Schedule', 'http://www.ballhockey-canada.com/ballhockey/maxsolutions/niagara/schedules/LSch_Mens_1143.htm'
 
       .small-12.large-6.columns
-        %h2 Weekend Warriors
+        %h2 Weekend Warriors Next Games
 
         - @weekend_warriors_schedule[:future_games][0..1].each do |game|
           = render partial: 'game', locals: { game: game, played_game: false }
 
-        = link_to 'Full League Schedule', 'http://www.ballhockey-canada.com/ballhockey/maxsolutions/niagara/schedules/LSch_Mens_1142.htm', class: 'full-schedule'
+        .full-schedule
+          = link_to 'Full Team Schedule', team_weekend_warriors_path
+          = link_to 'Full League Schedule', 'http://www.ballhockey-canada.com/ballhockey/maxsolutions/niagara/schedules/LSch_Mens_1142.htm'

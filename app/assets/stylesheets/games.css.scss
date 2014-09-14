@@ -60,7 +60,13 @@ $border_color: #cc0000;
     }
   }
 
-  a.full-schedule {
-    margin-left: 25px;
+  .full-schedule {
+    margin: 25px;
+    display: block;
+
+    a {
+      display: inline-block;
+      margin-right: 45px;
+    }
   }
 }
