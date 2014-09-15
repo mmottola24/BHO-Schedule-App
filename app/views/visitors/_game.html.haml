@@ -5,8 +5,8 @@
 
   - if played_game == true
     .small-2.columns.scores
-      %div= game['VisitorPts']
-      %div= game['HomePts']
+      %div= (game['VisitorPts'].blank?) ? ' - ': game['VisitorPts']
+      %div= (game['HomePts'].blank?) ? ' - ': game['HomePts']
 
   %div{class: "small-#{(played_game == false) ? 6 : 5} columns details"}
     %div.date= Time.parse(game['Date']).strftime('%a %b %d')
