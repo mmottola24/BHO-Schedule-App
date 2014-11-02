@@ -25,7 +25,7 @@ class Schedule
       raw_schedule = JSON.parse(response.body)
 
       raw_schedule.each do |game|
-        if Time.parse("#{game['Date']} #{game['Start']}").future?
+        if Time.zone.parse("#{game['Date']} #{game['Start']}").future?
           schedule[:future_games].push game
         else
           schedule[:past_games].push game
