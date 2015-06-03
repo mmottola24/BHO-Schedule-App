@@ -8,15 +8,13 @@
     %h2 Upcoming Games
     .row
       .small-12.large-12.columns
-        %h4 Vendetta
-
-        .full-schedule
-          = link_to 'View Full Team Schedule', team_vendetta_path
-          = link_to 'View Full League Schedule', 'http://www.ballhockey-canada.com/ballhockey/maxsolutions/niagara/schedules/LSch_Mens_1329.htm'
 
         - @vendetta_schedule[:future_games][0..1].each do |game|
           = render partial: 'game', locals: { game: game, played_game: false }
 
+        .full-schedule.show-for-medium-up
+          = link_to 'View Full Team Schedule', team_vendetta_path
+          = link_to 'View Full League Schedule', 'http://www.ballhockey-canada.com/ballhockey/maxsolutions/niagara/schedules/LSch_Mens_1329.htm'
       
       -# commented out:
         .small-12.large-6.columns
