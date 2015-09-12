@@ -3,8 +3,12 @@
     Team Schedule
 
 %li
-  %a{:href => 'http://www.ballhockey-canada.com/ballhockey/maxsolutions/niagara/schedules/LSch_Mens_1329.htm'}
+  %a{:href => ENV['VENDETTA_SCHEDULE_URL']}
     League Schedule
+
+%li
+  %a{:href => ENV['VENDETTA_STATS_URL']}
+    Team Stats
 
 //%li{class: (params['action'] == 'team_weekend_warriors') ? 'active' : ''}
 //%a{:href => team_weekend_warriors_path}
