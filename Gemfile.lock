@@ -75,6 +75,8 @@ GEM
       mime-types (>= 1.16, < 3)
     mime-types (2.3)
     minitest (5.4.1)
+    momentjs-rails (2.10.3)
+      railties (>= 3.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     newrelic_rpm (3.9.4.245)
@@ -161,6 +163,7 @@ DEPENDENCIES
   hub
   jbuilder (~> 2.0)
   jquery-rails
+  momentjs-rails
   newrelic_rpm
   quiet_assets
   rails (= 4.1.6)
