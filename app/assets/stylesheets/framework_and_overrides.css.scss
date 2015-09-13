@@ -8,10 +8,12 @@ body {
 .top-bar .name {
   font-size: rem-calc(13);
   line-height: 45px; }
-.top-bar .name a {
-  font-weight: normal;
+.top-bar .name h1 a {
+  font-weight: bold;
   color: white;
-  padding: 0 15px; }
+  padding: 0 15px;
+  font-size: 1.3em;
+}
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create mixins using Foundation classes
@@ -58,6 +60,17 @@ nav {
   ul.right {
     li {
       text-align: center;
+    }
+  }
+
+  h1 {
+    a {
+      font-weight: bold;
+    }
+    img {
+      border-radius: 8px;
+      height: 36px;
+      margin-right: 5px;
     }
   }
 
