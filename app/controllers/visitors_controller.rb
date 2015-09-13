@@ -22,6 +22,9 @@ class VisitorsController < ApplicationController
 
     respond_to do |format|
       format.html { render 'visitors/team_schedule' }
+      format.json {
+        render json: Schedule.get_events_calendar_object(@data[:schedule], team_name)
+      }
     end
   end
 end

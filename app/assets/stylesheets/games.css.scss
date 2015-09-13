@@ -69,4 +69,75 @@ $border_color: #cc0000;
       margin-right: 45px;
     }
   }
+
+  .game-list {
+    margin-top: 50px;
+  }
+}
+
+#scheduleCalendar {
+
+  h2 {
+    border-bottom: none;
+    font-size: 1.5em;
+    margin: 0;
+  }
+
+  .fc-button {
+    &.fc-state-hover {
+      background: none;
+      background-color: red;
+    }
+  }
+
+  .fc-event-container {
+    .fc-day-grid-event {
+      border-color: #000000;
+      text-align: center;
+      padding: 3px;
+    }
+    .home-team {
+      background-color: #c20201;
+    }
+    .away-team {
+      background-color: #676767;
+    }
+    .fc-title {
+      display: block;
+      white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+      white-space: -pre-wrap;      /* Opera 4-6 */
+      white-space: -o-pre-wrap;    /* Opera 7 */
+      white-space: pre-wrap;       /* css-3 */
+      word-wrap: break-word;       /* Internet Explorer 5.5+ */
+      white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
+      word-break: normal;
+      white-space: normal;
+      font-size: .9em;
+    }
+  }
+
+  .fc-widget-header {
+    table {
+      margin-bottom: 1px;
+    }
+  }
+}
+
+#scheduleCalendarLegend {
+  text-align: right;
+
+  div {
+    padding: 5px;
+    font-size: .8em;
+    color: #ffffff;
+    border: 1px solid #000000;
+    display: inline-block;
+  }
+  .away-team {
+    background-color: #676767;
+  }
+  .home-team {
+    background-color: #c20201;
+  }
+
 }

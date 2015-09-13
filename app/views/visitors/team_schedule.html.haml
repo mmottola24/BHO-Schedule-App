@@ -1,23 +1,46 @@
-%h2
-  #{@data[:team_name]} Schedule
 
 %section#schedule
+  %h2
+    Schedule
+
   - if @data[:schedule].nil? or @data[:schedule] == false
     %div{class: 'alert-box alert', 'data-alert' => ''}
-      %p Boo... Something went wrong. Schedule was not found or had errors.
+      %p Boo... Something went wrong. Schedule was not found or had errors. 
 
   - else
+    .container
+      .small-12.medium-5.large-5.columns
+        .game-list
+          - if @data[:schedule][:future_games].blank?
+            %p Bummer... no upcoming games posted.
+          - else
+            - @data[:schedule][:future_games].each do |game|
+              = render partial: 'game', locals: { game: game, played_game: false }
 
-    %h3 Upcoming Games
+          - unless @data[:schedule][:past_games].blank?
+            %h3 Played Games
 
-    - if @data[:schedule][:future_games].blank?
-      %p Bummer... no upcoming games posted.
-    - else
-      - @data[:schedule][:future_games].each do |game|
-        = render partial: 'game', locals: { game: game, played_game: false }
+            - @data[:schedule][:past_games].reverse.each do |game|
+              = render partial: 'game', locals: { game: game, played_game: true }
 
-    - unless @data[:schedule][:past_games].blank?
-      %h3 Played Games
+      .small-12.medium-7.large-7.columns
+        #scheduleCalendar
+        #scheduleCalendarLegend
+          .away-team Away Game
+          .home-team Home Game
 
-      - @data[:schedule][:past_games].reverse.each do |game|
-        = render partial: 'game', locals: { game: game, played_game: true }
+
+:javascript
+  $(document).ready(function() {
+      // page is now ready, initialize the calendar...
+      $('#scheduleCalendar').fullCalendar({
+          events: "#{team_vendetta_path}.json",
+          editable: false,
+          height: 'auto',
+          header: {
+              left:   '',
+              center: '',
+              right:  'title prev,next'
+          }
+      })
+  });
