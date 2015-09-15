@@ -72,7 +72,7 @@ class Schedule
       result << game['Home'] == team_name ? "vs #{game['Home']}" : "vs #{game['Visitor']}"
     elsif game['Home'] == team_name
       result = (game['HomePts'] > game['VisitorPts']) ? 'W' : 'L'
-      result << " #{game['HomePts']}-game['VisitorPts']}\nvs #{game['Visitor']}"
+      result << " #{game['HomePts']}-#{game['VisitorPts']}\nvs #{game['Visitor']}"
     else
       result = (game['VisitorPts'] > game['HomePts']) ? 'W' : 'L'
       result << " #{game['VisitorPts']}-#{game['HomePts']}\nvs #{game['Home']}"
