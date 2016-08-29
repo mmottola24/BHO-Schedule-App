@@ -19,6 +19,6 @@
   - unless prev_game.blank?
     %div{class: "small-12 columns history"}
       %p
-        = "Last played: #{prev_game['date'].strftime('%b %d, %Y')} - "
+        = "Last played: #{prev_game['season']}, #{prev_game['facility']}, "
         = get_game_result(prev_game, 'Vendetta')
 .row
