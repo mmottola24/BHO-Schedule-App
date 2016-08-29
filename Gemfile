@@ -9,8 +9,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
-gem "awesome_print"
-gem 'foundation-rails'
+gem 'foundation-rails', '5.4.3.1'
 gem 'haml-rails'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
@@ -18,8 +17,10 @@ gem 'httparty'
 gem 'newrelic_rpm'
 gem 'rails_12factor', group: :production
 gem 'momentjs-rails'
+gem 'mysql'
 
 group :development do
+  gem "awesome_print"
   gem 'html2haml'
   gem 'hub', :require=>nil
   gem 'quiet_assets'
