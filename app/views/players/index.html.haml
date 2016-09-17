@@ -1,0 +1,28 @@
+%h1 Players
+
+%table
+  %thead
+    %tr
+      %th First name
+      %th Last name
+      %th Position
+      %th Number
+      %th Active
+      %th
+      %th
+      %th
+
+  %tbody
+    - @players.each do |player|
+      %tr
+        %td= link_to player.first_name, player
+        %td= link_to player.last_name, player
+        %td= player.position
+        %td= player.number
+        %td= player.active
+        %td= link_to 'Edit', edit_player_path(player)
+        %td= link_to 'Remove', player, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Add New Player', new_player_path, class: 'button'
