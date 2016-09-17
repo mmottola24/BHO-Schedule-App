@@ -16,9 +16,10 @@
         = (game['Facility'] == 'Indoor') ? 'Indoor' : 'Outdoor'
 
   - prev_game = Game.find_previous_games(game).first
+
   - unless prev_game.blank?
-    %div{class: "small-12 columns history"}
-      %p
-        = "Last played: #{prev_game['season']}, #{prev_game['facility']}, "
-        = get_game_result(prev_game, 'Vendetta')
-.row
+    - if played_game == false
+      %div{class: "small-12 columns history"}
+        %p
+          = "Last played: #{prev_game['season']}, #{prev_game['facility']}, "
+          = get_game_result(prev_game, 'Vendetta')
