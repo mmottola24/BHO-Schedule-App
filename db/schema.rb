@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160917040717) do
+ActiveRecord::Schema.define(version: 20160918040644) do
 
   create_table "games", force: true do |t|
     t.string   "season_type"
@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(version: 20160917040717) do
     t.string   "winning_team"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "voting_open"
+    t.string   "day_of_week"
   end
 
   create_table "players", force: true do |t|
@@ -37,5 +39,17 @@ ActiveRecord::Schema.define(version: 20160917040717) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "votes", force: true do |t|
+    t.integer  "game_id"
+    t.integer  "player_id"
+    t.integer  "star_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["game_id"], name: "index_votes_on_game_id", using: :btree
+  add_index "votes", ["player_id"], name: "index_votes_on_player_id", using: :btree
+  add_index "votes", ["star_number"], name: "index_votes_on_star_number", using: :btree
 
 end

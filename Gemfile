@@ -18,6 +18,8 @@ gem 'newrelic_rpm'
 gem 'rails_12factor', group: :production
 gem 'momentjs-rails'
 gem 'mysql'
+gem "font-awesome-rails"
+gem 'jquery-ui-rails'
 
 group :development do
   gem "awesome_print"

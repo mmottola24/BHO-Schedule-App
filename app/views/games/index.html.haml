@@ -1,0 +1,32 @@
+%h1 Games
+
+%table
+  %thead
+    %tr
+      %th Season
+      %th Date
+      %th Time
+      %th Rink
+      %th Away Team
+      %th Home Team
+      %th Voting?
+      //%th
+      %th
+
+  %tbody
+    - @games.each do |game|
+      %tr
+        %td= game.season + ' - ' + game.season_type
+        %td= game.date
+        %td= game.game_time
+        %td= game.facility
+        %td= game.visitor_team
+        %td= game.home_team
+        %td= game.voting_open ? 'yes' : 'no'
+        //%td= link_to 'Show', game
+        %td= link_to 'Edit', edit_game_path(game), class: 'button tiny'
+
+%br
+
+= link_to 'New Game', new_game_path, class: 'button'
+= link_to 'Back to Manage', manage_path, class: 'button secondary small'

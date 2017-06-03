@@ -16,6 +16,7 @@
   %b Active:
   = @player.active
 
-= link_to 'Edit', edit_player_path(@player)
-\|
-= link_to 'Back', players_path
+
+%hr
+= link_to 'Edit', edit_player_path(@player), class: 'button tiny'
+= link_to 'Back', players_path, class: 'button tiny secondary'

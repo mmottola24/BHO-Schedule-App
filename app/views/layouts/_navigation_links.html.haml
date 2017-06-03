@@ -2,14 +2,12 @@
   %a{:href => team_vendetta_path}
     Team Schedule
 
-%li
-  %a{:href => ENV['VENDETTA_SCHEDULE_URL']}
-    League Schedule
+- unless ENV['VENDETTA_SCHEDULE_URL'].blank?
+  %li
+    %a{:href => ENV['VENDETTA_SCHEDULE_URL']}
+      League Schedule
 
-%li
-  %a{:href => ENV['VENDETTA_STATS_URL']}
-    Team Stats
-
-//%li{class: (params['action'] == 'team_weekend_warriors') ? 'active' : ''}
-//%a{:href => team_weekend_warriors_path}
-//Weekend Warriors
+- unless ENV['VENDETTA_STATS_URL'].blank?
+  %li
+    %a{:href => ENV['VENDETTA_STATS_URL']}
+      Team Stats
