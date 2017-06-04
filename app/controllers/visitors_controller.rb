@@ -9,8 +9,8 @@ class VisitorsController < ApplicationController
     get_team_schedule('Vendetta')
   end
 
-  def team_weekend_warriors
-    get_team_schedule('Weekend Warriors')
+  def calendar
+
   end
 
   private

@@ -1,0 +1,27 @@
+
+%section#schedule
+  %h2
+    Calendar
+
+  .container
+    .small-12.columns
+      #scheduleCalendar
+      #scheduleCalendarLegend
+        .away-team Away Game
+        .home-team Home Game
+
+
+:javascript
+  $(document).ready(function() {
+      // page is now ready, initialize the calendar...
+      $('#scheduleCalendar').fullCalendar({
+          events: "#{team_vendetta_path}.json",
+          editable: false,
+          height: 'auto',
+          header: {
+              left:   '',
+              center: '',
+              right:  'title prev,next'
+          }
+      })
+  });

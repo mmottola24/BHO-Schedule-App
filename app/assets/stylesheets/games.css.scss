@@ -12,7 +12,6 @@ $border_color: #cc0000;
 
     div > div {
       padding: 2px;
-      background-color: #ffffff;
     }
   }
 
@@ -65,7 +64,7 @@ $border_color: #cc0000;
       }
     }
 
-    .history {
+    .content > div {
 
       strong {
         font-size: .9em;
@@ -96,14 +95,30 @@ $border_color: #cc0000;
       }
       .content {
         display: none;
-        text-align: right;
+        text-align: center;
+
+        div {
+          line-height: 15px;
+        }
+
+        .panel {
+          margin: 10px;
+          padding: 10px;
+          background: #e8e8e8 none repeat scroll 0 0;
+          border-radius: 10px;
+
+          strong {
+            margin-bottom: 10px;
+          }
+        }
       }
 
       table {
         width: auto;
         border: 0;
-        text-align: right;
-        float: right;
+        text-align: center;
+        margin: 0 auto;
+        background: none;
 
         tr {
           background: none;

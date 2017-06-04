@@ -1,7 +1,7 @@
 
 %section#schedule
   %h2
-    Schedule
+    Full Schedule
 
   - if @data[:schedule].nil? or @data[:schedule] == false
     %div{class: 'alert-box alert', 'data-alert' => ''}
@@ -9,7 +9,10 @@
 
   - else
     .container
-      .small-12.medium-5.large-5.columns
+      .small-12.columns
+        %a{:href => calendar_path, class: 'button tiny right'}
+          View as Calendar
+
         .game-list
           - if @data[:schedule][:future_games].blank?
             %p Bummer... no upcoming games posted.
@@ -22,25 +25,3 @@
 
             - @data[:schedule][:past_games].reverse.each do |game|
               = render partial: 'game', locals: { game: game, played_game: true }
-
-      .small-12.medium-7.large-7.columns
-        #scheduleCalendar
-        #scheduleCalendarLegend
-          .away-team Away Game
-          .home-team Home Game
-
-
-:javascript
-  $(document).ready(function() {
-      // page is now ready, initialize the calendar...
-      $('#scheduleCalendar').fullCalendar({
-          events: "#{team_vendetta_path}.json",
-          editable: false,
-          height: 'auto',
-          header: {
-              left:   '',
-              center: '',
-              right:  'title prev,next'
-          }
-      })
-  });

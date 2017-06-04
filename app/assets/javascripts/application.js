@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require turbolinks
 //= require foundation
 //= require moment
 //= require_tree .
@@ -27,14 +26,28 @@ $(document).ready(function(){
     
     $('.stats-wrapper a').click(function() {
         var self = $(this);
+        var date = self.data('date'),
+            hour = self.data('hour'),
+            rink = self.data('rink'),
+            weatherLoaded = self.data('weather_loaded');
+
         self.parent().find('.content').toggle();
 
         if (self.hasClass('open')) {
+            // CLOSE Stats
             self.addClass('closed').removeClass('open');
             self.find('i').addClass('fa-chevron-down').removeClass('fa-chevron-up');
         } else {
+            // OPEN Stats
             self.addClass('open').removeClass('closed');
             self.find('i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+
+            if (rink == 'Outdoor' && weatherLoaded != '1') {
+                // load the map widget if game is outdoor
+                get_weather_widget(self.parent(), date, hour);
+
+                self.attr('data-weather_loaded', 1);
+            }
         }
     });
 });

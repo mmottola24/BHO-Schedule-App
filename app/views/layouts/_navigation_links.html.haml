@@ -2,6 +2,10 @@
   %a{:href => team_vendetta_path}
     Team Schedule
 
+%li{class: (params['action'] == 'calendar') ? 'active' : ''}
+  %a{:href => calendar_path}
+    Calendar
+
 - unless ENV['VENDETTA_SCHEDULE_URL'].blank?
   %li
     %a{:href => ENV['VENDETTA_SCHEDULE_URL']}
