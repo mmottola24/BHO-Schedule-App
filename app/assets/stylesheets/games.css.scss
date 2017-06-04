@@ -11,22 +11,15 @@ $border_color: #cc0000;
     margin: 0 10px;
 
     div > div {
-      padding: 5px;
+      padding: 2px;
       background-color: #ffffff;
-
-      &:nth-of-type(2n) {
-        background-color: #f9f9f9;
-      }
-    }
-
-    div.columns {
-      padding-left: 0 !important;
-      padding-right: 0 !important;
     }
   }
 
   .game {
+    margin: 0;
     margin-bottom: 20px;
+    background-color: #ffffff;
 
     div {
       line-height: 25px;
@@ -35,20 +28,33 @@ $border_color: #cc0000;
       div {
         padding-left: 15px;
       }
-
     }
 
     .scores {
+      font-weight: bold;
+      text-align: center;
+      background: none;
+
       div {
         font-weight: bold;
       }
     }
 
+    .date, .details {
+      font-size: 1em;
+      text-align: right;
+    }
+
+    .date {
+      font-size: 1em;
+      font-weight: bold;
+    }
+
     .details {
-      font-size: .8em;
+      font-size: 0.9em;
 
       .date {
-        font-size: 1.1em;
+        font-size: 1em;
         font-weight: bold;
       }
 
@@ -60,10 +66,52 @@ $border_color: #cc0000;
     }
 
     .history {
+
+      strong {
+        font-size: .9em;
+      }
       p {
         margin: 0;
-        font-size: .8em;
+        font-size: .9em;
         padding-left: 15px;
+      }
+    }
+
+    .stats-wrapper {
+      background: none;
+      padding: 0 10px;
+      line-height: 1em;
+
+      a {
+        text-align: right;
+        display: block;
+
+        &:active, &:hover {
+          background: none;
+          color: #000000;
+        }
+      }
+      a, i {
+        font-size: .7em;
+      }
+      .content {
+        display: none;
+        text-align: right;
+      }
+
+      table {
+        width: auto;
+        border: 0;
+        text-align: right;
+        float: right;
+
+        tr {
+          background: none;
+
+          td {
+            padding: 5px;
+          }
+        }
       }
     }
   }

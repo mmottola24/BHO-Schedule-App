@@ -24,4 +24,17 @@ $(document).ready(function(){
     $('.datepicker').datepicker({
         'dateFormat': 'yy-mm-dd'
     });
+    
+    $('.stats-wrapper a').click(function() {
+        var self = $(this);
+        self.parent().find('.content').toggle();
+
+        if (self.hasClass('open')) {
+            self.addClass('closed').removeClass('open');
+            self.find('i').addClass('fa-chevron-down').removeClass('fa-chevron-up');
+        } else {
+            self.addClass('open').removeClass('closed');
+            self.find('i').removeClass('fa-chevron-down').addClass('fa-chevron-up');
+        }
+    });
 });

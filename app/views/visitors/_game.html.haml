@@ -1,25 +1,39 @@
 .row.game
-  %div{class: "small-#{(played_game == false) ? 6 : 5} columns teams"}
-    %div= game['Visitor']
-    %div= game['Home']
+  %div.row
+    %div{class: "small-#{(played_game == false) ? 6 : 5} columns"}= game['Visitor']
 
-  - if played_game == true
-    .small-2.columns.scores
-      %div= (game['VisitorPts'].blank?) ? ' - ': game['VisitorPts']
-      %div= (game['HomePts'].blank?) ? ' - ': game['HomePts']
+    - if played_game == true
+      %div.scores.small-2.columns= (game['VisitorPts'].blank?) ? ' - ': game['VisitorPts']
 
-  %div{class: "small-#{(played_game == false) ? 6 : 5} columns details"}
-    %div.date= Time.parse(game['Date']).strftime('%a %b %d')
-    %div
+    %div.date{class: "small-#{(played_game == false) ? 6 : 5} columns"}= Time.parse(game['Date']).strftime('%a %b %d')
+
+  %div.row
+    %div{class: "small-#{(played_game == false) ? 6 : 5} columns"}= game['Home']
+
+    - if played_game == true
+      %div.scores.small-2.columns= (game['HomePts'].blank?) ? ' - ': game['HomePts']
+
+    %div{class: "small-#{(played_game == false) ? 6 : 5} columns details"}
       %span.time= game['Start']
       %span.rink
         = (game['Facility'] == 'Indoor') ? 'Indoor' : 'Outdoor'
 
-  - prev_game = Game.find_previous_games(game).first
 
-  - unless prev_game.blank?
-    - if played_game == false
-      %div{class: "small-12 columns history"}
-        %p
-          = "Last played: #{prev_game['season']}, #{prev_game['facility']}, "
-          = get_game_result(prev_game, 'Vendetta')
+  - prev_games = Game.find_previous_games(game).limit(5)
+
+  - unless prev_games.blank?
+    .small-12.large-12.columns
+      .stats-wrapper
+        %a
+          see previous games
+          %i.fa.fa-chevron-down
+
+        .content
+
+          %div{class: "small-12 columns history"}
+            %table
+              - prev_games.each do |prev_game|
+                %tr
+                  %td= prev_game['season']
+                  %td= prev_game['facility']
+                  %td= get_game_result(prev_game, 'Vendetta')
