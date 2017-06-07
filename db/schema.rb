@@ -30,6 +30,10 @@ ActiveRecord::Schema.define(version: 20160918040644) do
     t.string   "day_of_week"
   end
 
+  add_index "games", ["home_team", "home_points"], name: "home_team_home_points", using: :btree
+  add_index "games", ["visitor_points"], name: "visitor_points", using: :btree
+  add_index "games", ["visitor_team"], name: "visitor_team", using: :btree
+
   create_table "players", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"

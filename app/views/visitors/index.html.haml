@@ -17,14 +17,3 @@
 
           - unless ENV['VENDETTA_SCHEDULE_URL'].blank?
             = link_to 'Go To League Schedule', ENV['VENDETTA_SCHEDULE_URL']
-      
-      -# commented out:
-        .small-12.large-6.columns
-          %h4 Weekend Warriors
-
-          - @weekend_warriors_schedule[:future_games][0..1].each do |game|
-            = render partial: 'game', locals: { game: game, played_game: false }
-
-          .full-schedule
-            = link_to 'View Full Team Schedule', team_weekend_warriors_path
-            = link_to 'View Full League Schedule', ENV['WARRIORS_SCHEDULE_URL']
