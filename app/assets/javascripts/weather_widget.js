@@ -2,7 +2,7 @@ var get_weather_widget = function($object, date, hour) {
 
     var apiKey = 'eb7f35de94f846278ef54159170406',
         postalCode = 'L2P3J8',
-        apiURL = "https://api.apixu.com/v1/forecast.json?key=" + apiKey + "&q=" + postalCode + "&dt=" + date + "&hour=" + hour,
+        apiURL = "http://api.apixu.com/v1/forecast.json?key=" + apiKey + "&q=" + postalCode + "&dt=" + date + "&hour=" + hour,
         $weatherDOM = $object.find('.content .weather-forecast');
 
     $weatherDOM.prepend('<img class="loader-gif" src="/ajax-loader.gif" alt="Loading..." />');
