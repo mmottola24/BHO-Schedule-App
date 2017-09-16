@@ -19,6 +19,7 @@ gem 'momentjs-rails'
 gem 'mysql'
 gem "font-awesome-rails"
 gem 'jquery-ui-rails'
+gem 'devise'
 
 group :development do
   gem "awesome_print"
