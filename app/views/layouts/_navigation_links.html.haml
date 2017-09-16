@@ -15,3 +15,9 @@
   %li
     %a{:href => ENV['VENDETTA_STATS_URL']}
       Team Stats
+
+
+- if current_user.try(:admin?)
+  %li{class: (params['controlller'] == 'manage') ? 'active' : ''}
+    %a{:href => manage_path}
+      Manage

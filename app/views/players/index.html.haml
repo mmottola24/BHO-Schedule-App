@@ -7,10 +7,8 @@
       %th Last name
       %th Position
       %th Number
-      %th Active
-      %th
-      %th
-      %th
+      %th Status
+      %th Actions
 
   %tbody
     - @players.each do |player|
@@ -19,9 +17,10 @@
         %td= link_to player.last_name, player
         %td= player.position
         %td= player.number
-        %td= player.active
-        %td= link_to 'Edit', edit_player_path(player)
-        %td= link_to 'Remove', player, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %td= player.active ? 'Active' : 'Disabled'
+        %td
+          = link_to 'Edit', edit_player_path(player)
+          = link_to 'Remove', player, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

@@ -8,4 +8,6 @@ Rails.application.routes.draw do
 
   get 'team/vendetta', to: 'visitors#team_vendetta'
   get 'calendar', to: 'visitors#calendar'
+
+  resources :users
 end
