@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   # GET /games
   # GET /games.json
   def index
-    @games = Game.all.limit(15)
+    @games = Game.all.page params[:page]
   end
 
   # GET /games/1

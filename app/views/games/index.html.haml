@@ -26,7 +26,8 @@
         //%td= link_to 'Show', game
         %td= link_to 'Edit', edit_game_path(game), class: 'button tiny'
 
-%br
+%p
+  = paginate @games
 
 = link_to 'New Game', new_game_path, class: 'button'
 = link_to 'Back to Manage', manage_path, class: 'button secondary small'
