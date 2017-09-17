@@ -21,6 +21,7 @@ gem "font-awesome-rails"
 gem 'jquery-ui-rails'
 gem 'devise'
 gem 'kaminari'
+gem 'omniauth-facebook'
 
 group :development do
   gem "awesome_print"

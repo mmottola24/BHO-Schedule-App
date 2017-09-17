@@ -90,4 +90,9 @@ div {
 
 .alert-box {
   margin-top: 15px;
+  border-radius: 5px;
+
+  .close:hover {
+    opacity: 0;
+  }
 }
