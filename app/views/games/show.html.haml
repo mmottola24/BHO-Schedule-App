@@ -1,8 +1,16 @@
+%p#notice= notice
 
-%hr
+= show_field 'Type', @game.season_type
+= show_field 'Season', @game.season
+= show_field 'Date', @game.date
+= show_field 'Time', @game.time
+= show_field 'Facility', @game.facility
+= show_field 'Visitor', @game.visitor_team
+= show_field 'Visitor Points', @game.visitor_points
+= show_field 'Home Points', @game.home_points
+= show_field 'Home Team', @game.home_team
+
 
 = link_to 'Edit', edit_game_path(@game), class: 'button tiny'
 = link_to 'Back', games_path, class: 'button tiny secondary'
-
-= link_to 'Delete', game_path(@game), class: 'button tiny alert', method: :delete
 

@@ -14,7 +14,7 @@ class GamesController < ApplicationController
 
   # GET /games/new
   def new
-    @game = Game.new
+    @game = Game.new params[:game].blank? ? nil : game_params
   end
 
   # GET /games/1/edit
