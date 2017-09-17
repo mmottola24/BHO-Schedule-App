@@ -16,8 +16,11 @@
     %a{:href => ENV['VENDETTA_STATS_URL']}
       Team Stats
 
+- if user_signed_in?
+  - if current_user.try(:admin?)
+    %li{class: (params['controlller'] == 'manage') ? 'active' : ''}
+      %a{:href => manage_path}
+        Manage
 
-- if current_user.try(:admin?)
-  %li{class: (params['controlller'] == 'manage') ? 'active' : ''}
-    %a{:href => manage_path}
-      Manage
+  %li
+    = link_to 'Logout', destroy_user_session_path, method: :delete
