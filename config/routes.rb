@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root to: 'visitors#index'
 
-  get 'team/vendetta', to: 'visitors#team_vendetta'
+  get 'team/schedule', to: 'visitors#full_team_schedule'
   get 'calendar', to: 'visitors#calendar'
 
   resources :users

@@ -5,7 +5,7 @@ class VisitorsController < ApplicationController
     #@weekend_warriors_schedule    = Schedule.get_team_schedule('Weekend Warriors')
   end
 
-  def team_vendetta
+  def full_team_schedule
     get_team_schedule(ENV['TEAM_NAME'])
   end
 

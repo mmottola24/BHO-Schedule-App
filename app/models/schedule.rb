@@ -77,5 +77,6 @@ class Schedule
       result = (game['VisitorPts'] > game['HomePts']) ? 'W' : 'L'
       result << " #{game['VisitorPts']}-#{game['HomePts']}\nvs #{game['Home']}"
     end
+    result
   end
 end

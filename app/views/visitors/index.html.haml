@@ -13,7 +13,10 @@
           = render partial: 'game', locals: { game: game, played_game: false }
 
         .full-schedule.show-for-medium-up
-          = link_to 'View Full Team Schedule', team_vendetta_path
+          - games_left = @vendetta_schedule[:future_games].count - 4
+          - if games_left != 0
+            = "#{games_left} additional games: "
+          = link_to 'View Full Team Schedule', team_schedule_path
 
           - unless ENV['VENDETTA_SCHEDULE_URL'].blank?
             = link_to 'Go To League Schedule', ENV['VENDETTA_SCHEDULE_URL']

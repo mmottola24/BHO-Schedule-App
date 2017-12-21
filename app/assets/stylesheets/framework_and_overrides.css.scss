@@ -7,6 +7,9 @@ body {
   background-color: #eee;
 }
 // override for the 'Home' navigation link
+.top-bar {
+  background-color: #646262;
+}
 .top-bar .name {
   font-size: rem-calc(13);
   line-height: 45px; }
