@@ -50,7 +50,7 @@
                     %table
                       - prev_games.each do |prev_game|
                         %tr
-                          %td= prev_game['season']
+                          %td= "#{prev_game['season']} - #{Time.parse(prev_game['date']).strftime('%b %d')}"
                           %td= prev_game['facility']
                           %td= get_game_result(prev_game, ENV['TEAM_NAME'])
                     .clear
