@@ -21,7 +21,7 @@
   - if played_game == false
     - prev_games = Game.find_previous_games(game).limit(5)
 
-    - if !prev_games.blank? or game['Facility'] = 'Outdoor'
+    - if !prev_games.blank? or game['Facility'] == 'Outdoor'
       .small-12.large-12.columns
         .stats-wrapper
           %a{'data-rink' => (game['Facility'] == 'Indoor') ? 'Indoor' : 'Outdoor', 'data-date' => game['Date'] , 'data-hour' => game['Start'][0..1]}
@@ -52,7 +52,7 @@
                         %tr
                           %td= prev_game['season']
                           %td= prev_game['facility']
-                          %td= get_game_result(prev_game, 'Vendetta')
+                          %td= get_game_result(prev_game, ENV['TEAM_NAME'])
                     .clear
 
   - elsif current_user.try(:admin?)
