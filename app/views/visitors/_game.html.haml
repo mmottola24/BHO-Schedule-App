@@ -24,7 +24,7 @@
     - if !prev_games.blank? or game['Facility'] == 'Outdoor'
       .small-12.large-12.columns
         .stats-wrapper
-          %a{'data-rink' => (game['Facility'] == 'Indoor') ? 'Indoor' : 'Outdoor', 'data-date' => game['Date'] , 'data-hour' => game['Start'][0..1]}
+          %a{'data-rink' => (game['Facility'] == 'Open Rink') ? 'Outdoor' : game['Facility'], 'data-date' => game['Date'] , 'data-hour' => game['Start'][0..1]}
             pre-game
             %i.fa.fa-chevron-down
 
