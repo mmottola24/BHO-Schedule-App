@@ -16,20 +16,20 @@
     %div{class: "small-#{(played_game == false) ? 6 : 5} columns details"}
       %span.time= game['Start']
       %span.rink
-        = (game['Facility'] == 'Indoor') ? 'Indoor' : 'Outdoor'
+        = game['Facility']
 
   - if played_game == false
     - prev_games = Game.find_previous_games(game).limit(5)
 
     .small-12.large-12.columns
       .stats-wrapper
-        %a{'data-rink' => (game['Facility'] == 'Indoor') ? 'Indoor' : 'Outdoor', 'data-date' => game['Date'] , 'data-hour' => game['Start'][0..1]}
+        %a{'data-rink' => game['Facility'], 'data-date' => game['Date'] , 'data-hour' => game['Start'][0..1]}
           pre-game
           %i.fa.fa-chevron-down
 
         .content
 
-          - if game['Facility'] != 'Indoor'
+          - if game['Facility'] == 'BAC Open Rink'
             %div{class: "small-12 large-6 columns weather"}
               .panel
                 %strong Game Time Weather Forecast
