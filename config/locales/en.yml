@@ -21,3 +21,11 @@
 
 en:
   hello: "Hello world"
+
+  vendetta:
+    name: 'Vendetta'
+    logo: 'vendetta_logo.png'
+
+  bandits:
+    name: 'Back Door Bandits'
+    logo: 'bdb_logo.png'

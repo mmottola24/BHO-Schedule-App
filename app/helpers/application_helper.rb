@@ -12,4 +12,8 @@ module ApplicationHelper
       result << " #{game['visitor_points']}-#{game['home_points']}"
     end
   end
+
+  def team_config key
+    t("#{ENV['TEAM_KEY']}.#{key}")
+  end
 end

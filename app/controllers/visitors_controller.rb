@@ -1,8 +1,7 @@
 class VisitorsController < ApplicationController
 
   def index
-    @vendetta_schedule            = Schedule.get_team_schedule(ENV['TEAM_NAME'])
-    #@weekend_warriors_schedule    = Schedule.get_team_schedule('Weekend Warriors')
+    @schedule            = Schedule.get_team_schedule(ENV['TEAM_NAME'])
   end
 
   def full_team_schedule
