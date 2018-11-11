@@ -3,13 +3,14 @@
   %head
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %title= content_for?(:title) ? yield(:title) : team_config('name')
-    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Bho Schedule App'}"}
-    %link{:rel => 'icon', :sizes => '192x192', :href => "android-icon-192x192.png"}
-    %link{:rel => 'apple-touch-icon', :sizes => '57x57', :href => "apple-icon-57x57.png"}
-    %link{:rel => 'apple-touch-icon', :sizes => '72x72', :href => "apple-icon-72x72.png"}
-    %link{:rel => 'apple-touch-icon', :sizes => '114x114', :href => "apple-icon-114x114.png"}
-    %link{:rel => 'apple-touch-icon', :sizes => '144x144', :href => "apple-icon-144x144.png"}
-    %link{:rel => 'apple-touch-icon', :href => "apple-touch-icon.png"}
+    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'AHL'}"}
+    %link{:rel => 'icon', :sizes => '192x192', :href => "/assets/icons/#{team_config('icon_prefix')}_android-icon-192x192.png"}
+    %link{:rel => 'apple-touch-icon', :sizes => '57x57', :href => "/assets/icons/#{team_config('icon_prefix')}_apple-icon-57x57.png"}
+    %link{:rel => 'apple-touch-icon', :sizes => '72x72', :href => "/assets/icons/#{team_config('icon_prefix')}_apple-icon-72x72.png"}
+    %link{:rel => 'apple-touch-icon', :sizes => '114x114', :href => "/assets/icons/#{team_config('icon_prefix')}_apple-icon-114x114.png"}
+    %link{:rel => 'apple-touch-icon', :sizes => '144x144', :href => "/assets/icons/#{team_config('icon_prefix')}_apple-icon-144x144.png"}
+    %link{:rel => 'apple-touch-icon', :href => "/assets/icons/#{team_config('icon_prefix')}_apple-touch-icon.png"}
+    %link{:rel => 'icon', :sizes => '16x16', :href => "/assets/icons/#{team_config('icon_prefix')}_favicon.ico"}
     = stylesheet_link_tag 'application', media: 'all'
     -# Modernizr is required for Zurb Foundation
     = javascript_include_tag 'vendor/modernizr'
