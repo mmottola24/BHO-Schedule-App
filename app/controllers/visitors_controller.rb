@@ -1,11 +1,11 @@
 class VisitorsController < ApplicationController
 
   def index
-    @schedule            = Schedule.get_team_schedule(ENV['TEAM_NAME'])
+    @schedule = Schedule.get_team_schedule(@team.name)
   end
 
   def full_team_schedule
-    get_team_schedule(ENV['TEAM_NAME'])
+    get_team_schedule(@team.permalink)
   end
 
   def calendar
@@ -26,4 +26,5 @@ class VisitorsController < ApplicationController
       }
     end
   end
+
 end

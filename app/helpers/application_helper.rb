@@ -14,6 +14,6 @@ module ApplicationHelper
   end
 
   def team_config key
-    t("#{ENV['TEAM_KEY']}.#{key}")
+    @team.permalink
   end
 end
