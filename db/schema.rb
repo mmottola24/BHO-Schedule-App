@@ -11,9 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170917055513) do
+ActiveRecord::Schema.define(version: 20190901025551) do
 
   create_table "games", force: true do |t|
+    t.integer  "season_id"
     t.string   "season_type"
     t.string   "season"
     t.date     "date"
@@ -30,11 +31,38 @@ ActiveRecord::Schema.define(version: 20170917055513) do
     t.string   "day_of_week"
   end
 
+  add_index "games", ["home_team", "home_points"], name: "home_team_home_points", using: :btree
+  add_index "games", ["season_id"], name: "index_games_on_season_id", using: :btree
+  add_index "games", ["visitor_points"], name: "visitor_points", using: :btree
+  add_index "games", ["visitor_team"], name: "visitor_team", using: :btree
+
   create_table "players", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "number"
     t.string   "position"
+    t.boolean  "active",     default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "seasons", force: true do |t|
+    t.integer  "team_id"
+    t.string   "name"
+    t.string   "division"
+    t.integer  "year"
+    t.string   "url"
+    t.boolean  "active",     default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "seasons", ["team_id"], name: "index_seasons_on_team_id", using: :btree
+
+  create_table "teams", force: true do |t|
+    t.string   "name"
+    t.string   "short_name"
+    t.string   "logo"
     t.boolean  "active",     default: true
     t.datetime "created_at"
     t.datetime "updated_at"
