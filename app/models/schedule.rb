@@ -9,7 +9,6 @@ class Schedule
   def self.get_team_schedule team_name
     team_name = team_name.downcase.gsub(' ', '_')
     response = HTTParty.get("http://www.bho.michaelencode.com/team_schedule_#{team_name}.json")
-
     self.parse_team_schedule response
   end
 
@@ -77,5 +76,6 @@ class Schedule
       result = (game['VisitorPts'] > game['HomePts']) ? 'W' : 'L'
       result << " #{game['VisitorPts']}-#{game['HomePts']}\nvs #{game['Home']}"
     end
+    result
   end
 end

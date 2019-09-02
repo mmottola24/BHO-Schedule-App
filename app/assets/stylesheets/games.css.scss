@@ -1,9 +1,13 @@
 $border_color: #cc0000;
 
 #schedule {
+  h2 {
+    text-align: center;
+  }
+
   h2, h3, h4 {
     border-bottom: 1px solid $border_color;
-    margin: 15px;
+    margin: 15px 5px;
     margin-bottom: 20px;
   }
 
@@ -142,7 +146,11 @@ $border_color: #cc0000;
   }
 
   .game-list {
-    margin-top: 50px;
+    clear: both;
+
+    &.empty {
+      clear: none;
+    }
   }
 }
 
@@ -211,4 +219,19 @@ $border_color: #cc0000;
     background-color: #c20201;
   }
 
+}
+
+#standings {
+  table {
+    table-layout: auto;
+
+    th, td {
+      text-align: center;
+      max-width: 20px;
+    }
+
+    tr th:first-child, tr td:first-child {
+      max-width: 60px;
+    }
+  }
 }

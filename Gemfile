@@ -19,6 +19,10 @@ gem 'momentjs-rails'
 gem 'mysql'
 gem "font-awesome-rails"
 gem 'jquery-ui-rails'
+gem 'devise'
+gem 'kaminari'
+gem 'omniauth-facebook'
+gem 'nokogiri'
 
 group :development do
   gem "awesome_print"

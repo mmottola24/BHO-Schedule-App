@@ -1,0 +1,24 @@
+%h1 users
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Email
+      %th Linked to Player
+      %th Actions
+
+  %tbody
+    - @users.each do |user|
+      %tr
+        %td= link_to user.name, user
+        %td= link_to user.email, user
+        %td= link_to user.player.full_name, user.player unless user.player.nil?
+        %td
+          = link_to 'Edit', edit_user_path(user)
+          = link_to 'Remove', user, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'Add New user', new_user_path, class: 'button'
+= link_to 'Back to Manage', manage_path, class: 'button secondary small'

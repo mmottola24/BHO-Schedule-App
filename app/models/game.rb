@@ -9,4 +9,8 @@ class Game < ActiveRecord::Base
   def game_time
     self.time.strftime('%I:%M %p')
   end
+
+  def self.search_exact_game date, time, game
+    self.where('date = ? and time = ?', date, time).find_previous_games(game).limit(1)
+  end
 end

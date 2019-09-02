@@ -1,17 +1,20 @@
-%li{class: (params['action'] == 'team_vendetta') ? 'active' : ''}
-  %a{:href => team_vendetta_path}
+%li{class: (params['action'] == 'full_team_schedule') ? 'active' : ''}
+  %a{:href => team_schedule_path}
     Team Schedule
 
 %li{class: (params['action'] == 'calendar') ? 'active' : ''}
-  %a{:href => calendar_path}
+  %a{:href => team_calendar_path}
     Calendar
 
-- unless ENV['VENDETTA_SCHEDULE_URL'].blank?
-  %li
-    %a{:href => ENV['VENDETTA_SCHEDULE_URL']}
-      League Schedule
+%li{class: (params['action'] == 'standings') ? 'active' : ''}
+  %a{:href => team_standings_path}
+    Standings
 
-- unless ENV['VENDETTA_STATS_URL'].blank?
+- if user_signed_in?
+  - if current_user.try(:admin?)
+    %li{class: (params['controlller'] == 'manage') ? 'active' : ''}
+      %a{:href => manage_path}
+        Manage
+
   %li
-    %a{:href => ENV['VENDETTA_STATS_URL']}
-      Team Stats
+    = link_to 'Logout', destroy_user_session_path, method: :delete

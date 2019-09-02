@@ -16,21 +16,21 @@
     %div{class: "small-#{(played_game == false) ? 6 : 5} columns details"}
       %span.time= game['Start']
       %span.rink
-        = (game['Facility'] == 'Indoor') ? 'Indoor' : 'Outdoor'
+        = (game['Facility'] == 'Open Rink') ? 'Outdoor' : game['Facility']
 
   - if played_game == false
     - prev_games = Game.find_previous_games(game).limit(5)
 
-    - unless prev_games.blank?
+    - if !prev_games.blank? or game['Facility'] == 'Open Rink'
       .small-12.large-12.columns
         .stats-wrapper
-          %a{'data-rink' => (game['Facility'] == 'Indoor') ? 'Indoor' : 'Outdoor', 'data-date' => game['Date'] , 'data-hour' => game['Start'][0..1]}
+          %a{'data-rink' => (game['Facility'] == 'Open Rink') ? 'Outdoor' : game['Facility'], 'data-date' => game['Date'] , 'data-hour' => game['Start'][0..1]}
             pre-game
             %i.fa.fa-chevron-down
 
           .content
 
-            - if game['Facility'] != 'Indoor'
+            - if game['Facility'] == 'Open Rink'
               %div{class: "small-12 large-6 columns weather"}
                 .panel
                   %strong Game Time Weather Forecast
@@ -42,14 +42,24 @@
                     .condition-humidity
 
 
-            %div{class: "small-12 large-6 columns history"}
-              .panel
-                %strong Previous Games
-                %div
-                  %table
-                    - prev_games.each do |prev_game|
-                      %tr
-                        %td= prev_game['season']
-                        %td= prev_game['facility']
-                        %td= get_game_result(prev_game, 'Vendetta')
-                  .clear
+            - unless prev_games.blank?
+              %div{class: "small-12 large-6 columns history"}
+                .panel
+                  %strong Previous Games
+                  %div
+                    %table
+                      - prev_games.each do |prev_game|
+                        %tr
+                          %td= "#{prev_game['season']} - #{Time.parse(prev_game['date'].to_s).strftime('%b %d')}"
+                          %td= prev_game['facility']
+                          %td= get_game_result(prev_game, @team.permalink)
+                    .clear
+
+  - elsif current_user.try(:admin?)
+
+    - # determine if game has been added to our database already
+    - game_search = Game.search_exact_game game['Date'], convert_time_to_24_hour(game['Start']), game
+    - if game_search.blank?
+      %div{style: 'float: right;'}
+        %a{href: generate_add_game_url(game), style: 'font-size: 10px;'}
+          add game
