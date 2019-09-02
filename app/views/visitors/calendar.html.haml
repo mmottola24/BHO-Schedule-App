@@ -1,10 +1,10 @@
 
 %section#schedule
-  %h2
-    Calendar
-
   .container
     .small-12.columns
+      %h2
+        = "#{@data[:team_name].titleize} Calendar"
+
       #scheduleCalendar
       #scheduleCalendarLegend
         .away-team Away Game

@@ -21,18 +21,3 @@
 
 en:
   hello: "Hello world"
-
-  vendetta:
-    name: 'Vendetta'
-    logo: 'vendetta_logo.png'
-    icon_prefix: 'vendetta'
-
-  bandits:
-    name: 'Back Door Bandits'
-    logo: 'bdb_logo.png'
-    icon_prefix: 'bandits'
-
-  hat_tricks:
-    name: 'Hat Tricks'
-    logo: 'hattricks_logo.png'
-    icon_prefix: 'hattricks'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190901174435) do
+ActiveRecord::Schema.define(version: 20190902052507) do
 
   create_table "attendance", force: true do |t|
     t.integer "game_id"
@@ -61,7 +61,9 @@ ActiveRecord::Schema.define(version: 20190901174435) do
     t.string   "division"
     t.integer  "year"
     t.string   "url"
-    t.boolean  "active",     default: true
+    t.text     "standings"
+    t.datetime "standings_cachetime"
+    t.boolean  "active",              default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -72,7 +74,9 @@ ActiveRecord::Schema.define(version: 20190901174435) do
     t.string   "permalink"
     t.string   "name"
     t.string   "logo"
-    t.boolean  "active",     default: true
+    t.string   "primary_color"
+    t.string   "nav_color"
+    t.boolean  "active",        default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

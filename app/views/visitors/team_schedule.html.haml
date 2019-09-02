@@ -1,27 +1,29 @@
-
 %section#schedule
-  %h2
-    Full Schedule
+  .container
+    .small-12.columns
+      %h2
+        = "#{@data[:team_name].titleize} Full Schedule"
 
-  - if @data[:schedule].nil? or @data[:schedule] == false
-    %div{class: 'alert-box alert', 'data-alert' => ''}
-      %p Boo... Something went wrong. Schedule was not found or had errors. 
+      - if @data[:schedule].nil? or @data[:schedule] == false
+        %div{class: 'alert-box alert', 'data-alert' => ''}
+          %p Boo... Something went wrong. Schedule was not found or had errors.
 
-  - else
-    .container
-      .small-12.columns
-        %a{:href => calendar_path, class: 'button tiny right'}
+      - else
+
+        %a{:href => team_calendar_path, class: 'button tiny right'}
           View as Calendar
 
-        .game-list
-          - if @data[:schedule][:future_games].blank?
+        - if @data[:schedule][:future_games].blank?
+          .game-list.empty
             %p Bummer... no upcoming games posted.
-          - else
+        - else
+          .game-list
             - @data[:schedule][:future_games].each do |game|
               = render partial: 'game', locals: { game: game, played_game: false }
 
-          - unless @data[:schedule][:past_games].blank?
-            %h3 Played Games
+        - unless @data[:schedule][:past_games].blank?
+          %h3 Past Games
 
+          .game-list
             - @data[:schedule][:past_games].reverse.each do |game|
               = render partial: 'game', locals: { game: game, played_game: true }
