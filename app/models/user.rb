@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
   belongs_to :player
 
   def self.from_omniauth(auth)
-    ap auth
     where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid

@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190901025551) do
+ActiveRecord::Schema.define(version: 20190901174435) do
+
+  create_table "attendance", force: true do |t|
+    t.integer "game_id"
+    t.integer "player_id"
+    t.integer "status"
+  end
+
+  add_index "attendance", ["game_id"], name: "index_attendance_on_game_id", using: :btree
+  add_index "attendance", ["player_id"], name: "index_attendance_on_player_id", using: :btree
 
   create_table "games", force: true do |t|
     t.integer  "season_id"
@@ -60,8 +69,8 @@ ActiveRecord::Schema.define(version: 20190901025551) do
   add_index "seasons", ["team_id"], name: "index_seasons_on_team_id", using: :btree
 
   create_table "teams", force: true do |t|
+    t.string   "permalink"
     t.string   "name"
-    t.string   "short_name"
     t.string   "logo"
     t.boolean  "active",     default: true
     t.datetime "created_at"
