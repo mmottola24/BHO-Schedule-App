@@ -1,14 +1,14 @@
 {
-    "name": "Vendetta Ball Hockey",
-    "short_name": "Vendetta",
+    "name": "Red Raiders Ball Hockey",
+    "short_name": "Red Raiders",
     "icons": [
         {
-            "src": "/assets/icons/vendetta/android-chrome-192x192.png",
+            "src": "/assets/icons/red_raiders/android-chrome-192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "/assets/icons/vendetta/android-chrome-512x512.png",
+            "src": "/assets/icons/red_raiders/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
