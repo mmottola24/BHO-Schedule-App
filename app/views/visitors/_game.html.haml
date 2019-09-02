@@ -18,7 +18,7 @@
       %span.rink
         = game['Facility']
 
-  - if played_game == false
+  - if 1 == 0 #disabling pre-game functionality but keeping code here for now
     - prev_games = Game.find_previous_games(game).limit(5)
 
     .small-12.large-12.columns
@@ -26,33 +26,30 @@
         %a{'data-rink' => game['Facility'], 'data-date' => game['Date'] , 'data-hour' => game['Start'][0..1]}
           pre-game
           %i.fa.fa-chevron-down
+          .content
+            - if game['Facility'] == 'BAC Open Rink'
+              %div{class: "small-12 large-6 columns weather"}
+                .panel
+                  %strong Game Time Weather Forecast
+                  .weather-forecast
+                    .condition-icon
+                    .condition-text
+                    .condition-temp
+                    .condition-wind
+                    .condition-humidity
 
-        .content
-
-          - if game['Facility'] == 'BAC Open Rink'
-            %div{class: "small-12 large-6 columns weather"}
-              .panel
-                %strong Game Time Weather Forecast
-                .weather-forecast
-                  .condition-icon
-                  .condition-text
-                  .condition-temp
-                  .condition-wind
-                  .condition-humidity
-
-
-          - unless prev_games.blank?
-            %div{class: "small-12 large-6 columns history"}
-              .panel
-                %strong Previous Games
-                %div
-                  %table
-                    - prev_games.each do |prev_game|
-                      %tr
-                        %td= prev_game['season']
-                        %td= prev_game['facility']
-                        %td= get_game_result(prev_game, 'Vendetta')
-                  .clear
+            - unless prev_games.blank?
+              %div{class: "small-12 large-6 columns history"}
+                .panel
+                  %strong Previous Games
+                  %div
+                    %table
+                      - prev_games.each do |prev_game|
+                        %tr
+                          %td= "#{prev_game['season']} - #{Time.parse(prev_game['date'].to_s).strftime('%b %d')}"
+                          %td= prev_game['facility']
+                          %td= get_game_result(prev_game, @team.permalink)
+                    .clear
 
   - elsif current_user.try(:admin?)
 

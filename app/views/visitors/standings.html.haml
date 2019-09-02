@@ -1,0 +1,32 @@
+%section#standings
+  .container
+    .small-12.columns
+      %h2
+        = "#{@season.year} #{@season.division} #{@season.name} Standings"
+
+      #standings
+        %table.responsive
+          %thead
+            %tr
+              %th Team
+              %th GP
+              %th W
+              %th L
+              %th T
+              %th PTS
+              %th GF
+              %th GA
+              %th GD
+
+          %tbody
+            - @data['body'].each do |row|
+              %tr
+                %td= row['Team']
+                %td= row['GP']
+                %td= row['W']
+                %td= row['W']
+                %td= row['L']
+                %td= row['PTS']
+                %td= row['GF']
+                %td= row['GA']
+                %td= row['GD']

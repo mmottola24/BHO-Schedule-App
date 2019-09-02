@@ -7,15 +7,37 @@ body {
   background-color: #eee;
 }
 // override for the 'Home' navigation link
+.top-bar {
+  background-color: #646262;
+  height: 50px;
+}
 .top-bar .name {
   font-size: rem-calc(13);
-  line-height: 45px; }
+  line-height: 50px;
+  height: 50px;
+}
 .top-bar .name h1 a {
   font-weight: bold;
   color: white;
   padding: 0 15px;
   font-size: 1.3em;
+  line-height: 50px;
 }
+.top-bar-section li.active:not(.has-form) a:not(.button) {
+  background: #000000;
+  line-height: 50px;
+}
+.top-bar-section li:not(.has-form) a:not(.button) {
+  background: none;
+  line-height: 50px;
+}
+.top-bar-section ul li {
+  background: none;
+}
+nav.expanded .top-bar-section li:not(.has-form) a:not(.button) {
+  line-height: 25px;
+}
+
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create mixins using Foundation classes
@@ -48,9 +70,10 @@ body {
 main {
   @include twelve-columns;
   background-color: #eee;
+  padding: 15px 0 25px 0;
 
   @media (max-width: 638px) {
-    padding: 0;
+    padding: 10px 0;
   }
 }
 section {

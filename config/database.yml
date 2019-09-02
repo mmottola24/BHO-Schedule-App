@@ -1,0 +1,19 @@
+#development:
+#  adapter: mysql
+#  encoding: utf8
+#  reconnect: false
+#  database: ball_hockey_app
+#  pool: 5
+#  username: root
+#  password: root
+#  host: localhost
+
+development:
+  adapter: mysql
+  encoding: utf8
+  reconnect: true
+  database: heroku_cf6473b5079a075
+  pool: 5
+  username: bb3fd8b4c70e84
+  password: 69958153
+  host: us-cdbr-iron-east-04.cleardb.net

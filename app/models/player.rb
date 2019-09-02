@@ -1,5 +1,4 @@
 class Player < ActiveRecord::Base
-
   has_one :user
 
   def full_name

@@ -1,19 +1,14 @@
-%li{class: (params['action'] == 'team_vendetta') ? 'active' : ''}
-  %a{:href => team_vendetta_path}
+%li{class: (params['action'] == 'full_team_schedule') ? 'active' : ''}
+  %a{:href => team_schedule_path}
     Team Schedule
 
 %li{class: (params['action'] == 'calendar') ? 'active' : ''}
-  %a{:href => calendar_path}
+  %a{:href => team_calendar_path}
     Calendar
 
-- unless ENV['VENDETTA_SCHEDULE_URL'].blank?
-  %li
-    %a{:href => ENV['VENDETTA_SCHEDULE_URL']}
-
-- unless ENV['VENDETTA_STATS_URL'].blank?
-  %li
-    %a{:href => ENV['VENDETTA_STATS_URL']}
-      Team Stats
+%li{class: (params['action'] == 'standings') ? 'active' : ''}
+  %a{:href => team_standings_path}
+    Standings
 
 - if user_signed_in?
   - if current_user.try(:admin?)

@@ -1,10 +1,10 @@
 
 %section#schedule
-  %h2
-    Calendar
-
   .container
     .small-12.columns
+      %h2
+        = "#{@data[:team_name].titleize} Calendar"
+
       #scheduleCalendar
       #scheduleCalendarLegend
         .away-team Away Game
@@ -15,7 +15,7 @@
   $(document).ready(function() {
       // page is now ready, initialize the calendar...
       $('#scheduleCalendar').fullCalendar({
-          events: "#{team_vendetta_path}.json",
+          events: "#{team_schedule_path}.json",
           editable: false,
           height: 'auto',
           header: {
