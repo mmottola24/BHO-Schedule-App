@@ -1,28 +1,29 @@
 $border_color: #cc0000;
 
 #schedule {
+  max-width: 400px;
+
   h2 {
     text-align: center;
-  }
-
-  h2, h3, h4 {
-    border-bottom: 1px solid $border_color;
-    margin: 15px 5px;
-    margin-bottom: 20px;
+    font-size: 22px;
+    text-decoration: underline;
   }
 
   .row {
-    margin: 0 10px;
+    margin: 0;
 
     div > div {
-      padding: 2px;
+      padding: 0;
     }
   }
 
   .game {
     margin: 0;
-    margin-bottom: 20px;
-    background-color: #ffffff;
+    margin-bottom: 30px;
+    //background-color: #ffffff;
+    //border: 1px solid rgba(0, 0, 0, 0.3);
+    text-align: center;
+    box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
 
     div {
       line-height: 25px;
@@ -30,6 +31,19 @@ $border_color: #cc0000;
     .teams {
       div {
         padding-left: 15px;
+      }
+    }
+
+    .matchup {
+      display: flex;
+      min-height: 80px;
+      font-size: 1.3em;
+      font-weight: bold;
+
+      > div {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
       }
     }
 
@@ -43,30 +57,43 @@ $border_color: #cc0000;
       }
     }
 
-    .date, .details {
-      font-size: 1em;
-      text-align: right;
+    .date {
+      background-color: #c70000;
+      color: #ffffff;
+      font-size: 1.4em;
+      font-weight: bold;
+      //border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      line-height: 40px;
     }
 
-    .date {
-      font-size: 1em;
+    .time {
+      text-align: right;
       font-weight: bold;
     }
 
-    .details {
-      font-size: 0.9em;
+    .venue {
+      background-color: #e8e8e8;
+      //border-top: 1px solid rgba(0, 0, 0, 0.3);
+      padding-top: 1px;
 
-      .date {
-        font-size: 1em;
-        font-weight: bold;
+      > div {
+        padding: 4px;
+        margin: 0;
       }
 
       .rink {
-        &:before {
-          content: " - "
-        }
+        font-size: 14px;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        line-height: 20px;
       }
     }
+
+    .versus {
+      font-size: .7em;
+    }
+
 
     .content > div {
 
@@ -133,6 +160,10 @@ $border_color: #cc0000;
         }
       }
     }
+  }
+
+  .next-game {
+
   }
 
   .full-schedule {
