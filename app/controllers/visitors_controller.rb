@@ -14,6 +14,14 @@ class VisitorsController < ApplicationController
     @data[:team_name] = params[:permalink] || @team.permalink
   end
 
+  def league_stats
+
+  end
+
+  def team_stats
+
+  end
+
   def standings
     @season = @team.active_season
 

@@ -1,14 +1,22 @@
 %li{class: (params['action'] == 'full_team_schedule') ? 'active' : ''}
   %a{:href => team_schedule_path}
-    Team Schedule
+    Schedule
 
 %li{class: (params['action'] == 'calendar') ? 'active' : ''}
   %a{:href => team_calendar_path}
     Calendar
 
 %li{class: (params['action'] == 'standings') ? 'active' : ''}
-  %a{:href => team_standings_path}
+  %a{:href => league_standings_path}
     Standings
+
+%li{class: (params['action'] == 'league_stats') ? 'active' : ''}
+  %a{:href => league_stats_path}
+    League Stats
+
+%li{class: (params['action'] == 'team_stats') ? 'active' : ''}
+  %a{:href => team_stats_path}
+    Team Stats
 
 - if user_signed_in?
   - if current_user.try(:admin?)
