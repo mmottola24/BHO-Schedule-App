@@ -18,6 +18,10 @@
   %a{:href => team_stats_path}
     Team Stats
 
+%li
+  %a{:href => @team.active_season.url}
+    Go to Ballhockey.com
+
 - if user_signed_in?
   - if current_user.try(:admin?)
     %li{class: (params['controlller'] == 'manage') ? 'active' : ''}
