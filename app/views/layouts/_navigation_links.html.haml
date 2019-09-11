@@ -10,14 +10,6 @@
   %a{:href => league_standings_path}
     Standings
 
-%li{class: (params['action'] == 'league_stats') ? 'active' : ''}
-  %a{:href => league_stats_path}
-    League Stats
-
-%li{class: (params['action'] == 'team_stats') ? 'active' : ''}
-  %a{:href => team_stats_path}
-    Team Stats
-
 %li
   %a{:href => @team.active_season.url}
     Go to Ballhockey.com

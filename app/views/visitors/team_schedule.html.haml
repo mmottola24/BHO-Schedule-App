@@ -10,9 +10,6 @@
 
       - else
 
-        %a{:href => team_calendar_path, class: 'button secondary tiny right'}
-          View as Calendar
-
         - if @data[:schedule][:future_games].blank?
           .game-list.empty
             %p Bummer... no upcoming games posted.
