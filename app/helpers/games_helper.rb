@@ -1,4 +1,9 @@
 module GamesHelper
+
+  def get_active_season team
+    team.seasons.first
+  end
+
   def generate_add_game_url game
     query_str = {
         game: {

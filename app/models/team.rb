@@ -6,8 +6,4 @@ class Team < ActiveRecord::Base
   def self.find_by_permalink permalink
     self.where(permalink: permalink)
   end
-
-  def active_season
-    self.seasons.first
-  end
 end

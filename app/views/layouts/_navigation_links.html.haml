@@ -11,7 +11,7 @@
     Standings
 
 %li
-  %a{:href => @team.active_season.url}
+  %a{:href => get_active_season(@team).url}
     Go to Ballhockey.com
 
 - if user_signed_in?

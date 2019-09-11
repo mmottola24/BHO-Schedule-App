@@ -23,7 +23,7 @@ class VisitorsController < ApplicationController
   end
 
   def standings
-    @season = @team.active_season
+    @season = @team.seasons.first
 
     if @season.standings.blank? or (@season.standings_cachetime <  (Time.now - 1.hours))
       # Cache does not exist or out of date, build it
