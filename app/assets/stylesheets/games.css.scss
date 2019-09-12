@@ -258,6 +258,7 @@ h2, h3 {
     th, td {
       text-align: center;
       max-width: 20px;
+      overflow-wrap: break-word;
     }
 
     tr th:first-child, tr td:first-child {

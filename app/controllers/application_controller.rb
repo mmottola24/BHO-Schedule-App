@@ -16,7 +16,6 @@ class ApplicationController < ActionController::Base
 
   def find_team
     team = ENV['TEAM_KEY']
-    #team = 'vendetta'
     @team = Team.find_by_permalink(team).first
   end
 end
