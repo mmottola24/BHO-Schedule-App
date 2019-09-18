@@ -10,11 +10,6 @@
   %a{:href => league_standings_path}
     Standings
 
-- unless @team.blank?
-  %li
-    %a{:href => get_active_season(@team).url}
-      Go to Ballhockey.com
-
 - if user_signed_in?
   - if current_user.try(:admin?)
     %li{class: (params['controlller'] == 'manage') ? 'active' : ''}
