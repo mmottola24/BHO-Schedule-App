@@ -23,9 +23,10 @@
           %tbody
             - i = 1
             - @data['body'].each do |row|
-              %tr{class: row['Team'] == @team.name ? 'current-team' : '' }
+              - team = split_team_name_and_color(row['Team'])
+              %tr{class: team[:name] == @team.name ? 'current-team' : '', "style" => team[:name] == @team.name ? "background-color: #{@team.primary_color};" : '' }
                 %td= "#{i}."
-                %td= row['Team']
+                %td= team[:name]
                 %td= row['GP']
                 %td= row['W']
                 %td= row['L']

@@ -1,14 +1,20 @@
 .row.game
   %div.row
-    %div.date{class: "small-12 columns"}
+    %div.date{class: "small-12 columns", "style" => "background-color: #{@team.primary_color};"}
       = Time.parse(game['Date']).strftime('%a %b %-d')
       = ' – '
       = game['Start']
 
   %div.row.matchup
-    %div{class: "small-5 columns"}= game['Visitor']
+    %div{class: "small-5 columns"}
+      - team = split_team_name_and_color(game['Visitor'])
+      %span.name= team[:name]
+      %span.color= team[:color]
     %div{class: "small-2 columns versus"}= "vs"
-    %div{class: "small-5 columns"}= game['Home']
+    %div{class: "small-5 columns"}
+      - team = split_team_name_and_color(game['Home'])
+      %span.name= team[:name]
+      %span.color= team[:color]
 
   - if played_game == true
     %div.row

@@ -36,4 +36,9 @@ module GamesHelper
   def show_field label, field
     raw "<p><b>#{label}:</b><br>#{field}</p>"
   end
+
+  def split_team_name_and_color team_name
+    team = team_name.split(' (')
+    { name: team[0], color: '(' + team[1] }
+  end
 end

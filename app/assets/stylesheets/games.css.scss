@@ -25,7 +25,7 @@ h2, h3 {
     box-shadow: 0px 3px 15px rgba(0,0,0,0.2);
 
     div {
-      line-height: 25px;
+      line-height: 20px;
     }
     .teams {
       div {
@@ -36,7 +36,7 @@ h2, h3 {
     .matchup {
       display: flex;
       min-height: 60px;
-      font-size: 1.2em;
+      font-size: 1.3em;
       font-weight: bold;
       padding: 0 5px;
 
@@ -44,6 +44,16 @@ h2, h3 {
         display: flex;
         justify-content: center;
         flex-direction: column;
+      }
+
+      .name {
+        padding-top: 5px;
+      }
+
+      .color {
+        color: #777777;
+        font-size: .6em;
+        line-height: inherit;
       }
     }
 
@@ -258,20 +268,20 @@ h2, h3 {
 
     th, td {
       text-align: center;
-      max-width: 20px;
       overflow-wrap: break-word;
+      padding: 10px 0;
+      max-width: 10px;
     }
 
     tr th:first-child, tr td:first-child {
       max-width: 10px;
     }
     tr th:nth-child(2), tr td:nth-child(2) {
-      max-width: 60px;
+      max-width: 40px;
     }
 
     tr.current-team {
       td {
-        background-color: #a80000;
         color: #ffffff;
       }
     }
