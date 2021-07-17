@@ -1,0 +1,23 @@
+- team = split_team_name_and_color(stat['Team'])
+- is_current_team = team[:name].downcase == @team.name.downcase ? true : false
+%tr{class: is_current_team ? 'current-team' : '', "style" => is_current_team ? "background-color: #{@team.primary_color};" : ''}
+
+  - if type == 'player'
+    %td.number.rank= stat['Rank']
+    %td= stat['Team']
+    %td= stat['Player']
+    %td.number= stat['Goals']
+    %td.number= stat['Assists']
+    %td.number= stat['Points']
+    %td.number= stat['Penalty Mins']
+
+  - else
+    %td.number.rank= stat['Rank']
+    %td= stat['Team']
+    %td= stat['Player']
+    %td.number= stat['GP']
+    %td.number= stat['Wins']
+    %td.number= stat['Losses']
+    %td.number= stat['Ties']
+    %td.number= stat['Goals Against']
+    %td.number= stat['GAA']

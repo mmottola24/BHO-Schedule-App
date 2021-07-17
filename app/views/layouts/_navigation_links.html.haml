@@ -14,6 +14,10 @@
   %a{:href => league_standings_path}
     Standings
 
+%li{class: (params['action'] == 'stats') ? 'active' : ''}
+  %a{:href => league_stats_path}
+    Stats
+
 - if user_signed_in?
   - if current_user.try(:admin?)
     %li{class: (params['controlller'] == 'manage') ? 'active' : ''}

@@ -38,6 +38,9 @@ nav.expanded .top-bar-section li:not(.has-form) a:not(.button) {
   line-height: 25px;
 }
 
+.top-bar-section li.active:not(.has-form) a:not(.button):hover {
+  background-color: #000000;
+}
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create mixins using Foundation classes

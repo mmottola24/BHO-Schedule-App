@@ -1,5 +1,52 @@
 %section#stats
   .container
     .small-12.columns
-      %p
-        Coming soon
+      %h2
+        = "Player Stats"
+
+      %table
+        %thead
+          %tr
+            %th.number.rank
+            %th Team
+            %th Player
+            %th.number
+              %span.show-for-small G
+              %span.hidden-for-small Goals
+            %th.number
+              %span.show-for-small A
+              %span.hidden-for-small Assists
+            %th.number
+              %span.show-for-small P
+              %span.hidden-for-small Points
+            %th.number PIM
+        %tbody
+          - @data['player']['body'].each do |stat|
+            = render partial: 'stat_table_row', locals: { stat: stat, type: 'player' }
+
+      %h2
+        = "Goalie Stats"
+
+      %table
+        %thead
+          %tr
+            %th.number.rank
+            %th Team
+            %th Player
+            %th.number GP
+            %th.number
+              %span.show-for-small W
+              %span.hidden-for-small Wins
+            %th.number
+              %span.show-for-small L
+              %span.hidden-for-small Losses
+            %th.number
+              %span.show-for-small T
+              %span.hidden-for-small Ties
+            %th.number
+              %span.show-for-small GA
+              %span.hidden-for-small Goals Against
+            %th.number GAA
+        %tbody
+          - @data['goalie']['body'].each do |stat|
+            = render partial: 'stat_table_row', locals: { stat: stat, type: 'goalie' }

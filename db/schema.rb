@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210717040256) do
+ActiveRecord::Schema.define(version: 20210717185124) do
 
   create_table "attendance", force: true do |t|
     t.integer "game_id"
@@ -64,6 +64,8 @@ ActiveRecord::Schema.define(version: 20210717040256) do
     t.string   "url"
     t.text     "standings"
     t.datetime "standings_cachetime"
+    t.text     "stats"
+    t.datetime "stats_cachetime"
     t.boolean  "active",              default: true
     t.datetime "created_at"
     t.datetime "updated_at"

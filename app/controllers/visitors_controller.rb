@@ -20,7 +20,32 @@ class VisitorsController < ApplicationController
   end
 
   def league_stats
+    @season = Season.first
 
+    if @season.stats.blank? or (@season.stats_cachetime <  (Time.now - 1.hours))
+      # Cache does not exist or out of date, build it
+
+      page = Nokogiri::HTML(open(@season.url))
+      player_stats = page.css('table#ctl00_C_gvStats0')
+      goalie_stats = page.css('table#ctl00_C_gvStats1')
+
+      @data = { player: {}, goalie: {}}
+
+      @data[:player] = build_player_stats player_stats
+      @data[:goalie] = build_player_stats goalie_stats
+
+      json = @data.to_json
+      @season.stats = json
+      @season.stats_cachetime = Time.now
+      begin
+        @season.save!
+      rescue
+        # ignore
+      end
+    else
+      # load from cache
+      @data = JSON.parse @season.stats
+    end
   end
 
   def team_stats
@@ -94,6 +119,33 @@ class VisitorsController < ApplicationController
     respond_to do |format|
       format.html { render 'visitors/league_schedule' }
     end
+  end
+
+  def build_player_stats stats
+    data = { 'headers' => [], 'body' => [] }
+
+    stats.search('tr').each_with_index do |tr, index|
+      if index == 0
+        headers_data = []
+        cells = tr.search('th')
+        cells.each_with_index do |cell, i|
+          text = cell.text.strip
+          text = "Rank" if text.blank? and i == 0
+          headers_data.push(text)
+        end
+        data['headers'] = headers_data
+
+      else
+        cells = tr.search('td')
+        row = {}
+        cells.each_with_index do |cell, i|
+          text = cell.text.strip
+          row[data['headers'][i].to_s] = text
+        end
+        data['body'].push(row)
+      end
+    end
+    data
   end
 
 end

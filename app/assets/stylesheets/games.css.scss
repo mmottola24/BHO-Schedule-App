@@ -195,10 +195,28 @@ h2, h3 {
   }
 }
 
-#league-schedule {
+#league-schedule, #stats {
   table {
     tr.current-team td {
       color: #ffffff;
+    }
+
+    .number {
+      text-align: right;
+
+      @media (min-width: 641px) {
+        width: 75px;
+      }
+      @media (max-width: 640px) {
+        width: 40px;
+      }
+
+      span {
+        float: right;
+      }
+    }
+    .rank {
+      text-align: center;
     }
   }
 }
