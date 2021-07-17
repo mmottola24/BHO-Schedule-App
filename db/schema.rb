@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190902052507) do
+ActiveRecord::Schema.define(version: 20210717040256) do
 
   create_table "attendance", force: true do |t|
     t.integer "game_id"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 20190902052507) do
 
   create_table "seasons", force: true do |t|
     t.integer  "team_id"
+    t.text     "team_key"
     t.string   "name"
     t.string   "division"
     t.integer  "year"
