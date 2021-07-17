@@ -6,6 +6,10 @@
   %a{:href => team_calendar_path}
     Calendar
 
+%li{class: (params['action'] == 'league_schedule') ? 'active' : ''}
+  %a{:href => league_schedule_path}
+    League Schedule
+
 %li{class: (params['action'] == 'standings') ? 'active' : ''}
   %a{:href => league_standings_path}
     Standings

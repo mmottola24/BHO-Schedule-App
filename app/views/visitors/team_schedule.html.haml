@@ -2,7 +2,7 @@
   .container
     .small-12.columns
       %h2
-        = "#{@data[:team_name].titleize} Full Schedule"
+        = "#{@data[:team_name].titleize} Schedule"
 
       - if @data[:schedule].nil? or @data[:schedule] == false
         %div{class: 'alert-box alert', 'data-alert' => ''}

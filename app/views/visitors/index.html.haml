@@ -8,7 +8,7 @@
 
       .row.next-game
         .small-12.large-12.columns
-          %h2 Next Game!
+          %h2 Next Game:
           = render partial: 'game', locals: { game: @schedule[:future_games][0], played_game: false }
 
       - unless @schedule[:future_games][1].blank?
@@ -16,11 +16,5 @@
           .small-12.large-12.columns
             %h2 Games Coming Up
 
-            - @schedule[:future_games][1..3].each do |game|
+            - @schedule[:future_games].each do |game|
               = render partial: 'game', locals: { game: game, played_game: false }
-
-            .full-schedule
-              - games_left = @schedule[:future_games].count - 4
-              - if games_left > 0
-                = raw "<p><i>#{games_left} additional games</i></p>"
-                = link_to 'View Full Team Schedule', team_schedule_path

@@ -38,7 +38,11 @@ module GamesHelper
   end
 
   def split_team_name_and_color team_name
-    team = team_name.split(' (')
-    { name: team[0], color: '(' + team[1] }
+    if team_name.include? "("
+      team = team_name.split(' (')
+      { name: team[0], color: '(' + team[1] }
+    else
+      { name: team_name, color: nil }
+    end
   end
 end

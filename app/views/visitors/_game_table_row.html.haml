@@ -1,0 +1,16 @@
+- visiting_team = split_team_name_and_color(game['Visitor'])
+- home_team = split_team_name_and_color(game['Home'])
+- is_current_team = (visiting_team[:name].downcase == @team.name.downcase or home_team[:name].downcase == @team.name.downcase) ? true : false
+%tr{class: is_current_team ? 'current-team' : '', "style" => is_current_team ? "background-color: #{@team.primary_color};" : ''}
+  %td= Time.parse(game['Date']).strftime('%a %b %-d')
+  %td
+    %span.name= visiting_team[:name]
+    %span.color= visiting_team[:color]
+  - if played_game == true
+    %td.scores= (game['VisitorPts'].blank?) ? ' - ': game['VisitorPts']
+    %td.scores= (game['HomePts'].blank?) ? ' - ': game['HomePts']
+  %td
+    %span.name= home_team[:name]
+    %span.color= home_team[:color]
+  %td= game['Start']
+  %td= game['Facility']

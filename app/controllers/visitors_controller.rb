@@ -9,6 +9,11 @@ class VisitorsController < ApplicationController
     get_team_schedule(permalink)
   end
 
+  def league_schedule
+    permalink = params[:permalink] || @team.permalink
+    get_league_schedule(permalink)
+  end
+
   def calendar
     @data = {}
     @data[:team_name] = params[:permalink] || @team.permalink
@@ -23,7 +28,7 @@ class VisitorsController < ApplicationController
   end
 
   def standings
-    @season = @team.seasons.first
+    @season = Season.first
 
     if @season.standings.blank? or (@season.standings_cachetime <  (Time.now - 1.hours))
       # Cache does not exist or out of date, build it
@@ -78,6 +83,16 @@ class VisitorsController < ApplicationController
       format.json {
         render json: Schedule.get_events_calendar_object(@data[:schedule], team_name)
       }
+    end
+  end
+
+  def get_league_schedule team_name
+    @data               = {}
+    @data[:team_name]   = team_name
+    @data[:schedule]    = Schedule.get_full_schedule(team_name)
+
+    respond_to do |format|
+      format.html { render 'visitors/league_schedule' }
     end
   end
 

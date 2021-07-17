@@ -16,9 +16,9 @@
               %th T
               %th OTL
               %th PTS
-              %th GF
-              %th GA
-              %th GD
+              %th.hide-for-small GF
+              %th.hide-for-small GA
+              %th.hide-for-small GD
 
           %tbody
             - i = 1
@@ -33,7 +33,7 @@
                 %td= row['T']
                 %td= row['OTL']
                 %td= row['PTS']
-                %td= row['GF']
-                %td= row['GA']
-                %td= row['GD']
+                %td.hide-for-small= row['GF']
+                %td.hide-for-small= row['GA']
+                %td.hide-for-small= row['GD']
                 - i += 1

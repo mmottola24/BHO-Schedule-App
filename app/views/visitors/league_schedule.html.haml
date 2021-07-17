@@ -1,0 +1,44 @@
+%section#league-schedule
+  .container
+    .small-12.columns
+      %h2
+        = "League Schedule"
+
+      - if @data[:schedule].nil? or @data[:schedule] == false
+        %div{class: 'alert-box alert', 'data-alert' => ''}
+          %p Boo... Something went wrong. Schedule was not found or had errors.
+
+      - else
+
+        - if @data[:schedule][:future_games].blank?
+          .game-list.empty
+            %p Bummer... no upcoming games posted.
+        - else
+          %table
+            %thead
+              %tr
+                %th Date
+                %th Away Team
+                %th Home Team
+                %th Time
+                %th Rink
+            %tbody
+              - @data[:schedule][:future_games].each do |game|
+                = render partial: 'game_table_row', locals: { game: game, played_game: false }
+
+        - unless @data[:schedule][:past_games].blank?
+          %h3 Past Games
+
+          %table
+            %thead
+              %tr
+                %th Date
+                %th Away Team
+                %th{"style" => "width: 35px;"}
+                %th{"style" => "width: 35px;"}
+                %th Home Team
+                %th Time
+                %th Rink
+            %tbody
+              - @data[:schedule][:past_games].reverse.each do |game|
+                = render partial: 'game_table_row', locals: { game: game, played_game: true }
