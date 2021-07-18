@@ -1,4 +1,4 @@
-%section#schedule
+%section#team-schedule
   .container
     .small-12.columns
       %h2
@@ -14,13 +14,29 @@
           .game-list.empty
             %p Bummer... no upcoming games posted.
         - else
-          .game-list
-            - @data[:schedule][:future_games].each do |game|
-              = render partial: 'game', locals: { game: game, played_game: false }
+          %table
+            %thead
+              %tr
+                %th Date
+                %th Away Team
+                %th Home Team
+                %th Time
+                %th Rink
+            %tbody
+              - @data[:schedule][:future_games].each do |game|
+                = render partial: 'game_table_row', locals: { game: game, played_game: false, highlight_team: false }
 
         - unless @data[:schedule][:past_games].blank?
           %h3 Past Games
-
-          .game-list
-            - @data[:schedule][:past_games].reverse.each do |game|
-              = render partial: 'game', locals: { game: game, played_game: true }
+          %table
+            %thead
+              %tr
+                %th Date
+                %th Away Team
+                %th{colspan: 2, style: 'width: 70px;'}
+                %th Home Team
+                %th Time
+                %th Rink
+            %tbody
+              - @data[:schedule][:past_games].reverse.each do |game|
+                = render partial: 'game_table_row', locals: { game: game, played_game: true, highlight_team: false }

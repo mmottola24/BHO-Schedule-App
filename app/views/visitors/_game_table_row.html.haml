@@ -1,6 +1,8 @@
 - visiting_team = split_team_name_and_color(game['Visitor'])
 - home_team = split_team_name_and_color(game['Home'])
 - is_current_team = (visiting_team[:name].downcase == @team.name.downcase or home_team[:name].downcase == @team.name.downcase) ? true : false
+- highlight_team = highlight_team != false ? true : false
+- is_current_team = false if highlight_team == false
 %tr{class: is_current_team ? 'current-team' : '', "style" => is_current_team ? "background-color: #{@team.primary_color};" : ''}
   %td= Time.parse(game['Date']).strftime('%a %b %-d')
   %td
