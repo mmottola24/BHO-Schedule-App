@@ -18,6 +18,7 @@
 //= require_tree .
 
 $(document).ready(function(){
+    Foundation.global.namespace = '';
     $(document).foundation();
 
     $('.datepicker').datepicker({

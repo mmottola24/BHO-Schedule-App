@@ -1,8 +1,8 @@
 // import the CSS framework
+@import "normalize";
 @import "foundation";
 @import "font-awesome";
 @import "jquery-ui";
-
 body {
   background-color: #eee;
 }
@@ -45,13 +45,13 @@ nav.expanded .top-bar-section li:not(.has-form) a:not(.button) {
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create mixins using Foundation classes
 @mixin twelve-columns {
-  @extend .small-12;
-  @extend .columns;
+  @extend .small-12 !optional;
+  @extend .columns !optional;
   }
 @mixin six-columns-centered {
-  @extend .small-6;
-  @extend .columns;
-  @extend .text-center;
+  @extend .small-6 !optional;
+  @extend .columns !optional;
+  @extend .text-center !optional;
   }
 // create your own classes
 // to make views framework-neutral
@@ -59,14 +59,14 @@ nav.expanded .top-bar-section li:not(.has-form) a:not(.button) {
   @include six-columns-centered;
   }
 .form {
-  @include grid-column(6);
+
   }
 .form-centered {
   @include six-columns-centered;
   }
 .submit {
-  @extend .button;
-  @extend .radius;
+  @extend .button !optional;
+  @extend .radius !optional;
   }
 // apply styles to HTML elements
 // to make views framework-neutral
@@ -80,7 +80,7 @@ main {
   }
 }
 section {
-  @extend .row;
+  @extend .row !optional;
 }
 
 nav {

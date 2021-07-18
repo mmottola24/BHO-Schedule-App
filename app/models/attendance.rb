@@ -4,6 +4,6 @@ class Attendance < ActiveRecord::Base
 
   enum satus: [:unanswered, :yes, :maybe, :no]
 
-  default_scope { where('active = 1').order('year desc, division asc') }
+  default_scope -> { where('active = 1').order('year desc, division asc') }
 
 end

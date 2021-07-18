@@ -25,14 +25,15 @@ class VisitorsController < ApplicationController
     if @season.stats.blank? or (@season.stats_cachetime <  (Time.now - 1.hours))
       # Cache does not exist or out of date, build it
 
+      require 'open-uri'
       page = Nokogiri::HTML(open(@season.url))
       player_stats = page.css('table#ctl00_C_gvStats0')
       goalie_stats = page.css('table#ctl00_C_gvStats1')
 
       @data = { player: {}, goalie: {}}
 
-      @data[:player] = build_player_stats player_stats
-      @data[:goalie] = build_player_stats goalie_stats
+      @data['player'] = build_player_stats player_stats
+      @data['goalie'] = build_player_stats goalie_stats
 
       json = @data.to_json
       @season.stats = json
