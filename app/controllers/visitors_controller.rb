@@ -22,7 +22,7 @@ class VisitorsController < ApplicationController
   def league_stats
     @season = Season.first
 
-    if @season.stats.blank? or (@season.stats_cachetime <  (Time.now - 1.hours))
+    if @season.stats.blank? or (@season.stats_cachetime <  (Time.now - 2.hours))
       # Cache does not exist or out of date, build it
 
       require 'open-uri'
@@ -56,9 +56,10 @@ class VisitorsController < ApplicationController
   def standings
     @season = Season.first
 
-    if @season.standings.blank? or (@season.standings_cachetime <  (Time.now - 1.hours))
+    if @season.standings.blank? or (@season.standings_cachetime <  (Time.now - 2.hours))
       # Cache does not exist or out of date, build it
 
+      require 'open-uri'
       page = Nokogiri::HTML(open(@season.url))
       @standings = page.css('div#ctl00_C_pnlStandings > table')
 
