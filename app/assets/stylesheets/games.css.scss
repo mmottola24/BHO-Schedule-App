@@ -270,6 +270,36 @@ h2, h3 {
   }
 }
 
+.vendetta {
+  #scheduleCalendar {
+    .fc-event-container {
+      .home-team {
+        background-color: #a80000;
+      }
+    }
+  }
+  #scheduleCalendarLegend {
+    .home-team {
+      background-color: #a80000;
+    }
+  }
+}
+
+.bombers {
+  #scheduleCalendar {
+    .fc-event-container {
+      .home-team {
+        background-color: #b5B362;
+      }
+    }
+  }
+  #scheduleCalendarLegend {
+    .home-team {
+      background-color: #b5B362;
+    }
+  }
+}
+
 #scheduleCalendarLegend {
   text-align: right;
 
