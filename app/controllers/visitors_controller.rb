@@ -20,8 +20,6 @@ class VisitorsController < ApplicationController
   end
 
   def league_stats
-    @season = Season.first
-
     if @season.stats.blank? or (@season.stats_cachetime <  (Time.now - 2.hours))
       # Cache does not exist or out of date, build it
 
@@ -54,8 +52,6 @@ class VisitorsController < ApplicationController
   end
 
   def standings
-    @season = Season.first
-
     if @season.standings.blank? or (@season.standings_cachetime <  (Time.now - 2.hours))
       # Cache does not exist or out of date, build it
 

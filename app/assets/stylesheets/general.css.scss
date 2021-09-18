@@ -1,12 +1,9 @@
 body {
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
   line-height: 18px;
 }
 
-
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
@@ -99,4 +96,12 @@ div {
 
 table {
   width: 100%;
+}
+
+@media (max-width: 415px) {
+  table thead tr th, table tfoot tr th, table tfoot tr td, table tbody tr th, table tbody tr td, table tr td {
+    font-size: 0.60rem;
+    line-height: 0.925rem;
+    padding: 0.5rem;
+  }
 }

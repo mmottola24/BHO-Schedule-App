@@ -18,6 +18,10 @@
   %a{:href => league_stats_path}
     Stats
 
+%li{class: (params['action'] == 'stats') ? 'active' : ''}
+  %a{:href => @season.url, :target => '_blank'}
+    BHO Site
+
 - if user_signed_in?
   - if current_user.try(:admin?)
     %li{class: (params['controlller'] == 'manage') ? 'active' : ''}

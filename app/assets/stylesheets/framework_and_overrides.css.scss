@@ -3,9 +3,22 @@
 @import "foundation";
 @import "font-awesome";
 @import "jquery-ui";
+
+@import url('https://fonts.googleapis.com/css2?family=Graduate&family=Montserrat&display=swap');
+
 body {
   background-color: #eee;
+  font-family: 'Montserrat', sans-serif;
 }
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Graduate', sans-serif;
+}
+
+.top-bar-section ul li > a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+}
+
 // override for the 'Home' navigation link
 .top-bar {
   background-color: #646262;
@@ -20,7 +33,7 @@ body {
   font-weight: bold;
   color: white;
   padding: 0 15px;
-  font-size: 1.3em;
+  font-size: 1.7em;
   line-height: 50px;
 }
 .top-bar-section li.active:not(.has-form) a:not(.button) {
@@ -104,4 +117,11 @@ nav {
 
 .clear {
   clear: both;
+}
+
+.top-bar-section {
+  ul li a i {
+    padding-right: 5px;
+    color: #afaeae;
+  }
 }

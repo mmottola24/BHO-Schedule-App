@@ -17,5 +17,7 @@ class ApplicationController < ActionController::Base
   def find_team
     team = ENV['TEAM_KEY']
     @team = Team.find_by_permalink(team).first
+
+    @season = Season.first
   end
 end
