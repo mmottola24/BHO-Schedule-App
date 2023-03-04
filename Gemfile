@@ -17,7 +17,7 @@ gem 'httparty'
 gem 'newrelic_rpm'
 gem 'rails_12factor', group: :production
 gem 'momentjs-rails'
-gem 'mysql2', '0.3.18'
+gem 'mysql2', '0.4.10'
 gem "font-awesome-rails"
 gem 'jquery-ui-rails'
 gem 'devise'

@@ -143,7 +143,7 @@ GEM
     multi_json (1.15.0)
     multi_xml (0.6.0)
     multipart-post (2.1.1)
-    mysql2 (0.3.18)
+    mysql2 (0.4.10)
     newrelic_rpm (7.2.0)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
@@ -275,7 +275,7 @@ DEPENDENCIES
   jquery-ui-rails
   kaminari
   momentjs-rails
-  mysql2 (= 0.3.18)
+  mysql2 (= 0.4.10)
   newrelic_rpm
   nokogiri
   omniauth-facebook
