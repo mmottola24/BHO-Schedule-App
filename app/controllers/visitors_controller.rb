@@ -20,7 +20,7 @@ class VisitorsController < ApplicationController
   end
 
   def league_stats
-    if @season.stats.blank? or (@season.stats_cachetime <  (Time.now - 2.hours))
+    if is_cache_data_empty? @season.stats or (@season.stats_cachetime <  (Time.now - 2.hours))
       # Cache does not exist or out of date, build it
 
       require 'open-uri'
@@ -52,18 +52,18 @@ class VisitorsController < ApplicationController
   end
 
   def standings
-    if @season.standings.blank? or (@season.standings_cachetime <  (Time.now - 2.hours))
+    if is_cache_data_empty? @season.standings or (@season.standings_cachetime <  (Time.now - 2.hours))
       # Cache does not exist or out of date, build it
 
       require 'open-uri'
       page = Nokogiri::HTML(open(@season.url))
-      @standings = page.css('div#ctl00_C_pnlStandings > table')
+      @standings = page.css('table#gvStandings')
 
       @data = { 'headers' => [], 'body' => [] }
 
       @standings.search('tr').each_with_index do |tr, index|
 
-        if index == 1
+        if index == 0
           headers_data = []
           cells = tr.search('th')
           cells.each do |cell|
@@ -73,7 +73,7 @@ class VisitorsController < ApplicationController
           end
           @data['headers'] = headers_data
 
-        elsif index > 2
+        elsif index > 0
           cells = tr.search('td')
           row = {}
           cells.each_with_index do |cell, i|

@@ -17,7 +17,22 @@ class ApplicationController < ActionController::Base
   def find_team
     team = ENV['TEAM_KEY']
     @team = Team.find_by_permalink(team).first
-
     @season = Season.first
+  end
+
+  def is_cache_data_empty? data
+    response = false
+
+    blacklist = [
+      '{}',
+      '{"headers":[],"body":[]}',
+      '{"player":{"headers":[],"body":[]},"goalie":{"headers":[],"body":[]}}'
+    ]
+
+    if data.blank? or blacklist.include? data
+      response = true
+    end
+
+    response
   end
 end
