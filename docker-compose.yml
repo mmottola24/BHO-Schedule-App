@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  web:
+    container_name: hockey_app
+    build:
+      context: .
+    volumes:
+      - .:/hockey_app
+      - ./docker/start.sh:/tmp/start.sh
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
